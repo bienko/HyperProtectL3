@@ -413,7 +413,7 @@
 
 
 <h1 id="_1"></h1>
-<h1 id="provision-and-access-an-ibm-technology-zone-demonstration-environment">Provision and access an IBM Technology Zone demonstration environment</h1>
+<h1 id="provisioning-an-ibm-technology-zone-environment">Provisioning an IBM Technology Zone environment</h1>
 <div class="admonition tip">
 <p class="admonition-title">IBM TECHNOLOGY ZONE</p>
 <p>You will require access to the <strong>ITZ</strong> in order to reserve your environment and complete the hands-on training. If you do not yet have access or an account with the ITZ, you may register for one by visiting the following page: <a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a></p>
@@ -423,13 +423,13 @@
 <hr />
 <div class="admonition warning">
 <p class="admonition-title">MULTIPLE ENVIRONMENT TEMPLATES</p>
-<p>IBM Technology Zone will display two configurations to choose from. You will need to provision <strong>both</strong> the IBM Cloud HPCS and AWS account access tiles. The following instructions will guide you through how to do this.</p>
+<p>IBM Technology Zone will display two configurations to choose from. You will need to provision <strong>both</strong> the <code>IBM Cloud HPCS</code> and <code>AWS Account Access</code> tiles. The following instructions will guide you through how to do this.</p>
 </div>
 <p><img alt="" src="../_attachments/module1_figure2.png" /></p>
 <hr />
 <ol>
 <li>
-<p>Select the <code>Access to IBM Cloud HPCS</code> tile by clicking the blue <em>Reserve</em> icon.</p>
+<p>Select the <code>Access to IBM Cloud HPCS</code> tile by clicking the blue <strong>Reserve</strong> icon.</p>
 </li>
 <li>
 <p>You may select the option to <em>Reserve now</em> (recommended) or <em>Schedule for later</em>.</p>
@@ -466,14 +466,46 @@
 <p>Reservations take approximately <strong>15-20 minutes</strong> to complete from the time that you click submit. If you navigate to the <a href="https://techzone.ibm.com/my/reservations" target="_blank"><strong>My Reservations</strong></a> tab of the ITZ, you can monitor the progress of your reservation.</p>
 </li>
 </ol>
-<div class="admonition note">
+<div class="admonition warning">
 <p class="admonition-title">WAIT UNTIL READY</p>
 <p>Wait for the ITZ reservation to be marked as "<em>Ready</em>" before attempting to start the lab — accessing it too soon will lead to issues (or an outright failure) when connecting to the HPCS instance.</p>
 </div>
 <ol start="6">
-<li>You will also receive an email to your inbox once the environment has successfully deployed. The <strong>"Your environment is ready"</strong> email contains links back to the <a href="https://techzone.ibm.com/my/reservations" target="_blank">My Reservations</a> tab, which now is populated with all of the details needed to access your IBM Cloud HPCS environment.</li>
+<li>
+<p>You will also receive an email to your inbox once the environment has successfully deployed. The <strong>"Your environment is ready"</strong> email contains links back to the <a href="https://techzone.ibm.com/my/reservations" target="_blank">My Reservations</a> tab, which now is populated with all of the details needed to access your IBM Cloud HPCS environment.</p>
+</li>
+<li>
+<p>Repeat the same reservation steps <strong>2 through 6</strong> for the <code>AWS Account Access</code> instance. You will need to wait for both instances (IBM HPCS and AWS) to finish provisioning through the <a href="https://techzone.ibm.com/my/reservations" target="_blank"><strong>My Reservations</strong></a> tab of the ITZ before continuing with the lab.</p>
+</li>
 </ol>
-<p>You must reserve the IBM Cloud HPCS environment as this will give you access to an IBM Cloud Hyper Protect Crypto Services (HPCS) instance with UKO. You can also request access to an AWS environment and/or Azure environment (coming soon) to see keys orchestrated to these environment, and optionally use these keys to demo extended functionality to clients such as encrypting the contents of S3 bucket by these keys, followed by showing how to digitally shred data in a S3 bucket from IBM Cloud.</p>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure5.png" /></p>
+<hr />
+<h1 id="_2"></h1>
+<h1 id="accessing-the-hpcs-and-aws-environments">Accessing the HPCS and AWS environments</h1>
+<ol start="8">
+<li>For the <strong>IBM Cloud HPCS</strong> environment, you will receive an email (see Step 6) with an invitation to connect your personal IBM Cloud account to an <code>ITZ V2</code> account, as shown in the following screenshot. You must <strong>ACCEPT</strong> the invitation by clicking the <strong>Join Now</strong> button in the email.</li>
+</ol>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure6.png" /></p>
+<hr />
+<ol start="9">
+<li>
+<p>A web browser will open and direct you to log in to your IBM Cloud account. Proceed and then accept the <code>ITZ V2</code> invitation when prompted to do so.</p>
+</li>
+<li>
+<p>Once authenticated and logged in, look for a drop-down in the top-right corner of the IBM Cloud interface and click it to toggle between different Organizations / Resource Groups. You should see <code>ITZ V2</code> listed, potentially alongside multiple others. Click the <code>ITZ V2</code> group and wait for the browser to refresh.</p>
+</li>
+</ol>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure7.png" /></p>
+<hr />
+<ol start="11">
+<li>From the left-hand interface, click the <strong>Resource List</strong> icon (three stacked and bulleted lines) and drill down in the <strong>Security</strong> row. You should see an HPCS instance similar to the one shown in the following screenshot.</li>
+</ol>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure8.png" /></p>
+<hr />
 
 
 
