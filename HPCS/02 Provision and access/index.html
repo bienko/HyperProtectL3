@@ -413,44 +413,52 @@
 
 
 <h1 id="_1"></h1>
-<h1 id="provision-and-access-an-ibm-technology-zone-environment">Provision and access an IBM Technology Zone environment</h1>
-<p>In this section, you will provision and request access to an IBM Technology Zone (ITZ) environment where the Hyper Protect Crypto Services (HPCS) Unified Key Orchestrator (UKO) has been preconfigured for demonstration purposes. The keystores associated with this ITZ environment have already been linked to specific accounts that IBM administrates in Amazon Web Services (AWS) and Microsoft Azure public clouds.</p>
+<h1 id="provision-and-access-an-ibm-technology-zone-demonstration-environment">Provision and access an IBM Technology Zone demonstration environment</h1>
+<p>In this section, you will provision and request access to an <strong>IBM Technology Zone</strong> (ITZ) environment where the Hyper Protect Crypto Services (HPCS) Unified Key Orchestrator (UKO) has been preconfigured for demonstration purposes. The keystores associated with this ITZ environment have already been linked to specific accounts that IBM administrates in Amazon Web Services (AWS) and Microsoft Azure public clouds.</p>
 <div class="admonition tip">
 <p class="admonition-title">IBM TECHNOLOGY ZONE</p>
 <p>You will require access to the <strong>ITZ</strong> in order to reserve your environment and complete the hands-on training. If you do not yet have access or an account with the ITZ, you may register for one by visiting the following page: <a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a></p>
 </div>
-<p>The hands-on environment can be provisioned free-of-charge using the reservation portal: <a href="https://techzone.ibm.com/collection/use-the-unified-key-orchestrator-uko-to-orchestrate-keys-across-aws-andor-azure" target="_blank">https://techzone.ibm.com/collection/use-the-unified-key-orchestrator-uko-to-orchestrate-keys-across-aws-andor-azure</a></p>
-<p>Reservations take approximately <strong>15-20 minutes</strong> to provision and deploy.</p>
-<p><img alt="" src="_attachments/part1_figure1a.png" /></p>
+<p>The hands-on environment can be provisioned free-of-charge using the reservation portal: <strong><a href="https://techzone.ibm.com/collection/use-the-unified-key-orchestrator-uko-to-orchestrate-keys-across-aws-andor-azure/environments" target="_blank">https://techzone.ibm.com/collection/use-the-unified-key-orchestrator-uko-to-orchestrate-keys-across-aws-andor-azure/environments</a></strong></p>
+<p><img alt="" src="../_attachments/module1_figure2.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">MULTIPLE ENVIRONMENT TEMPLATES</p>
-<p>IBM Technology Zone may display multiple configurations to choose from. Select the template that matches the screenshot above and continue with the reservation steps as documented.</p>
+<p>IBM Technology Zone will display two configurations to choose from. You will need to provision <strong>both</strong> the IBM Cloud HPCS and AWS account access tiles. The following instructions will guide you through how to do this.</p>
 </div>
+<ol>
+<li>
+<p>Select the <code>Access to IBM Cloud HPCS</code> tile by clicking the blue Reserve icon.</p>
+</li>
+<li>
 <p>You may select the option to <em>Reserve now</em> (recommended) or <em>Schedule for later</em>.</p>
-<p><img alt="" src="_attachments/part1_figure1b.png" /></p>
-<p>In order to complete your ITZ reservation of the PowerVC infrastructure, you must supply the following information:</p>
+</li>
+</ol>
+<p><img alt="" src="../_attachments/module1_figure3.png" /></p>
+<ol start="3">
+<li>In order to complete your ITZ reservation of the HPCS infrastructure, you must supply the following information:</li>
+</ol>
 <ul>
 <li>
 <p><strong>Name</strong>: Give your reservation a unique name.</p>
 </li>
 <li>
-<p><strong>Purpose</strong>: Set to <em>Practice / Self-Education</em> and affirm that the environment will not be used with customer data.</p>
+<p><strong>Purpose</strong>: Set to <em>Practice / Self-Education</em> and affirm that the environment will not be used with customer data. If you are replicating this hands-on demonstration with a client, you must select <em>Customer Demo</em> and supply a sales opportunity number.</p>
 </li>
 <li>
 <p><strong>Purpose Description</strong>: Provide a brief summary of how the environment will be used.</p>
 </li>
 <li>
-<p><strong>Preferred Geography</strong>: <em>USA</em></p>
+<p><strong>Preferred Geography</strong>: <em>US-East (VPC)</em></p>
 </li>
 <li>
-<p><strong>Start Date &amp; Time</strong>: Select the time and date for when you plan to begin work on the hands-on material.</p>
-</li>
-<li>
-<p><strong>End Date &amp; Time</strong>: Select a time and date for when the reservation will expire.</p>
+<p><strong>End Date &amp; Time</strong>: Select a time and date for when the reservation will expire. The recommended amount is 2 days, although it is possible to finish the hands-on demonstration within a few hours.</p>
 </li>
 </ul>
-<p><img alt="" src="_attachments/part1_figure1c.png" /></p>
-<p>When satisfied, click the <strong>Check Availability</strong> button at the bottom of the page to verify that resources are available for your requested time slot. If the check passes, you can finalize your reservation request by clicking <strong>Submit</strong>.</p>
+<ol start="4">
+<li>When satisfied, verify that you agree to the <em>Terms and Conditions</em> for the environment and finalize your reservation request by clicking <strong>Submit</strong>.</li>
+</ol>
+<p><img alt="" src="../_attachments/module1_figure4.png" /></p>
+<p>You must reserve the IBM Cloud HPCS environment as this will give you access to an IBM Cloud Hyper Protect Crypto Services (HPCS) instance with UKO. You can also request access to an AWS environment and/or Azure environment (coming soon) to see keys orchestrated to these environment, and optionally use these keys to demo extended functionality to clients such as encrypting the contents of S3 bucket by these keys, followed by showing how to digitally shred data in a S3 bucket from IBM Cloud.</p>
 <h1 id="_2"></h1>
 <h1 id="accessing-your-itz-reservation">Accessing your ITZ reservation</h1>
 <p>As a reminder, reservations take approximately <strong>15-20 minutes</strong> to complete from the time that you click submit. If you navigate to the <strong>My Reservations</strong> tab of the ITZ ( <a href="https://techzone.ibm.com/my/reservations" target="_blank">https://techzone.ibm.com/my/reservations</a> ), you can monitor the progress of your reservation.</p>
