@@ -433,6 +433,10 @@
 <hr />
 <p><img alt="" src="../_attachments/module1_figure14.png" /></p>
 <hr />
+<div class="admonition warning">
+<p class="admonition-title">SHARED ENVIRONMENT<p>When selecting a <code>Name</code> for your key, be aware that other sellers and business partners enrolled in this Level 3 course will be able to see keys created in the shared HPCS environment. Do not use the names of clients or other confidential information as part of your key definition.</p>
+</p>
+</div>
 <p>You will be asked to supply the following information as part of the key definition:</p>
 <ul>
 <li>
@@ -444,11 +448,31 @@
 <li>
 <p>Specify the <strong>Key Properties</strong>, which include: a unique <code>Name</code>; <code>State: Active</code>; and <code>Expiration Date</code> set three days into the future.</p>
 </li>
+<li>
+<p>Specify the <strong>Target Keystore</strong>: <code>AWS Tech Zone</code></p>
+</li>
 </ul>
+<p>Under the <strong>Summary</strong> tab, review the selections and when satisfied click the <strong>Create Key</strong> button.</p>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure15.png" /></p>
+<hr />
+<h1 id="_2"></h1>
+<h1 id="validate-encryption-key-generation-on-aws">Validate encryption key generation on AWS</h1>
+<ol start="4">
+<li>
+<p>Return to the AWS dashboard and open the <strong>Key Management Service (KMS)</strong> panel as before. From the left-side of the interface, drill down into the <strong>Customer-managed keys</strong> section.</p>
+</li>
+<li>
+<p>Examine the contents and look for the uniquely generated key that you created using the Unified Key Orchestrator (UKO) in Step 3.</p>
+</li>
+</ol>
 <div class="admonition warning">
-<p class="admonition-title">SHARED ENVIRONMENT<p>When selecting a <code>Name</code> for your key, be aware that other sellers and business partners enrolled in this Level 3 course will be able to see keys created in the shared HPCS environment. Do not use the names of clients or other confidential information as part of your key definition.</p>
-</p>
+<p class="admonition-title">MISSING KEY</p>
+<p>If the key is not displayed, verify once again that your AWS dashboard is set to the <code>US East (N. Virginia)</code> region using the drop-down in the top-right corner of the interface.</p>
 </div>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure16.png" /></p>
+<hr />
 
 
 
