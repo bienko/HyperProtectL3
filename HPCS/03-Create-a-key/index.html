@@ -17,7 +17,7 @@
     
     
       
-        <title>Provision and access an IBM Technology Zone environment - IBM Cloud Hyper Protect Services Level 3 for Sales and Technical Sales</title>
+        <title>Generating a unique key with the AWS Keystore - IBM Cloud Hyper Protect Services Level 3 for Sales and Technical Sales</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Provision and access an IBM Technology Zone environment
+              Generating a unique key with the AWS Keystore
             
           </span>
         </div>
@@ -252,8 +252,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../01%20Introduction%20to%20HPCS%20and%20UKO/" class="md-nav__link">
+      <a href="../01-Introduction-to-HPCS-and-UKO/" class="md-nav__link">
         Introduction to HPCS and UKO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-Provision-and-access/" class="md-nav__link">
+        Provision and access an IBM Technology Zone environment
       </a>
     </li>
   
@@ -276,7 +290,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Provision and access an IBM Technology Zone environment
+        Generating a unique key with the AWS Keystore
       </a>
       
     </li>
@@ -290,21 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03 Create a key.md" class="md-nav__link">
-        Create a key with AWS Keystore
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04 Digitally shred.md" class="md-nav__link">
+      <a href="../04-Digitally-shred.md" class="md-nav__link">
         Digitally shred AWS S3 bucket objects
       </a>
     </li>
@@ -318,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05 Clean up.md" class="md-nav__link">
+      <a href="../05-Clean-up.md" class="md-nav__link">
         Clean up and conclusion
       </a>
     </li>
@@ -413,143 +413,42 @@
 
 
 <h1 id="_1"></h1>
-<h1 id="provisioning-an-ibm-technology-zone-environment">Provisioning an IBM Technology Zone environment</h1>
-<div class="admonition tip">
-<p class="admonition-title">IBM TECHNOLOGY ZONE</p>
-<p>You will require access to the <strong>IBM Technology Zone</strong> in order to reserve your environment and complete the hands-on training. If you do not yet have access or an account with the ITZ, you may register for one by visiting the following page: <a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a></p>
-</div>
-<p>In this section, you will provision and request access to an <strong>IBM Technology Zone</strong> (ITZ) environment where <strong>Hyper Protect Crypto Services</strong> (HPCS) and <strong>Unified Key Orchestrator</strong> (UKO) have been preconfigured for demonstration purposes. The keystores associated with this ITZ environment have already been linked to specific accounts that IBM administrates in Amazon Web Services (AWS) and Microsoft Azure public clouds.</p>
-<p>The hands-on environment can be provisioned free-of-charge using the reservation portal: <strong><a href="https://techzone.ibm.com/collection/use-the-unified-key-orchestrator-uko-to-orchestrate-keys-across-aws-andor-azure/environments" target="_blank">https://techzone.ibm.com/collection/use-the-unified-key-orchestrator-uko-to-orchestrate-keys-across-aws-andor-azure/environments</a></strong></p>
-<hr />
-<div class="admonition warning">
-<p class="admonition-title">MULTIPLE ENVIRONMENT TEMPLATES</p>
-<p>ITZ will display two configurations to choose from. You will need to provision <strong>both</strong> the <code>IBM Cloud HPCS</code> and <code>AWS Account Access</code> tiles. The following instructions will guide you through how to do this.</p>
-</div>
-<p><img alt="" src="../_attachments/module1_figure2.png" /></p>
-<hr />
+<h1 id="generating-a-unique-key-with-the-aws-keystore">Generating a unique key with the AWS Keystore</h1>
+<p>Previously, we provisioned and inspected encryption keys in AWS that were generated ahead of time by IBM Technology Zone. In the following section, you will generate an encryption key that can be later be used for managing resources accessed within the AWS environment.</p>
 <ol>
-<li>
-<p>Select the <code>Access to IBM Cloud HPCS</code> tile by clicking the blue <strong>Reserve</strong> icon.</p>
-</li>
-<li>
-<p>You may select the option to <em>Reserve now</em> (recommended) or <em>Schedule for later</em>.</p>
-</li>
-<li>
-<p>In order to complete your ITZ reservation of the HPCS environment, you must supply the following information:</p>
-</li>
-</ol>
-<ul>
-<li>
-<p><strong>Name</strong>: Give your reservation a unique name.</p>
-</li>
-<li>
-<p><strong>Purpose</strong>: Set to <em>Practice / Self-Education</em> and affirm that the environment will not be used with customer data. If you are replicating this hands-on demonstration with a client, you must select <em>Customer Demo</em> and supply a sales opportunity number.</p>
-</li>
-<li>
-<p><strong>Purpose Description</strong>: Provide a brief summary of how the environment will be used.</p>
-</li>
-<li>
-<p><strong>Preferred Geography</strong>: <em>US-East (VPC)</em></p>
-</li>
-<li>
-<p><strong>End Date &amp; Time</strong>: Select a time and date for when the reservation will expire. The recommended amount is 2 days, although it is possible to finish the hands-on demonstration within a few hours.</p>
-</li>
-</ul>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure4.png" /></p>
-<hr />
-<ol start="4">
-<li>
-<p>When satisfied, verify that you agree to the <em>Terms and Conditions</em> for the environment and finalize your reservation request by clicking <strong>Submit</strong>.</p>
-</li>
-<li>
-<p>Reservations take approximately <strong>15-20 minutes</strong> to complete from the time that you click submit. If you navigate to the <a href="https://techzone.ibm.com/my/reservations" target="_blank"><strong>My Reservations</strong></a> tab of the ITZ, you can monitor the progress of your reservation.</p>
-</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">WAIT UNTIL READY</p>
-<p>Wait for the ITZ reservation to be marked as "<em>Ready</em>" before attempting to start the lab — accessing it too soon will lead to issues (or an outright failure) when connecting to the HPCS instance.</p>
-</div>
-<ol start="6">
-<li>
-<p>You will also receive an email to your inbox once the environment has successfully deployed. The <strong>"Your environment is ready"</strong> email contains links back to the <a href="https://techzone.ibm.com/my/reservations" target="_blank">My Reservations</a> tab, which now is populated with all of the details needed to access your IBM Cloud HPCS environment.</p>
-</li>
-<li>
-<p>Repeat the same reservation <strong>Steps 2 through 6</strong> for the <code>AWS Account Access</code> instance. You will need to wait for both instances (IBM HPCS and AWS) to finish provisioning through the <a href="https://techzone.ibm.com/my/reservations" target="_blank"><strong>My Reservations</strong></a> tab of the ITZ before continuing with the lab.</p>
-</li>
-</ol>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure5.png" /></p>
-<hr />
-<h1 id="_2"></h1>
-<h1 id="accessing-the-hpcs-and-aws-environments">Accessing the HPCS and AWS environments</h1>
-<ol start="8">
-<li>For the <strong>IBM Cloud HPCS</strong> environment, you will receive an email (see Step 6) with an invitation to connect your personal IBM Cloud account to an <code>ITZ V2</code> account, as shown in the following screenshot. You must <strong>ACCEPT</strong> the invitation by clicking the <strong>Join Now</strong> button in the email.</li>
-</ol>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure6.png" /></p>
-<hr />
-<ol start="9">
-<li>
-<p>A web browser will open and direct you to log in to your IBM Cloud account. Proceed and then accept the <code>ITZ V2</code> invitation when prompted to do so.</p>
-</li>
-<li>
-<p>Once authenticated and logged in, look for a drop-down in the top-right corner of the IBM Cloud interface and click it to toggle between different Organizations / Resource Groups. You should see <code>ITZ V2</code> listed, potentially alongside multiple others. Click the <code>ITZ V2</code> group and wait for the browser to refresh.</p>
-</li>
-</ol>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure7.png" /></p>
-<hr />
-<ol start="11">
-<li>From the left-hand interface, click the <strong>Resource List</strong> icon (three stacked and bulleted lines) and drill down in the <strong>Security</strong> row. You should see an HPCS instance similar to the one shown in the following screenshot.</li>
+<li>Return to the <strong>IBM Cloud dashboard</strong> and drill down into <strong>Resource List</strong> &gt; <strong>Security</strong>, then click the name of the <code>Hyper Protect Crypto Services-Techzone</code> instance.</li>
 </ol>
 <hr />
 <p><img alt="" src="../_attachments/module1_figure8.png" /></p>
 <hr />
-<ol start="12">
-<li>For retrieving the <strong>AWS Account Access</strong> that was requested in Step 7, return to your email inbox and look for an email stating that the AWS environment is ready (similar to the screenshot provided below). Record the <code>AWS Access Group</code>, <code>AWS SSO User Portal URL</code>, and <code>Desktop</code> details provided in the note. Alternatively, you can always retrieve this information from the <a href="https://techzone.ibm.com/my/reservations" target="_blank"><strong>My Reservations</strong></a> tab of the ITZ.</li>
+<ol start="2">
+<li>The browser will redirect to a management panel for the HPCS instance. From the left-hand side of the interface, drill down into <strong>Vaults</strong> &gt; <strong>Managed Keys</strong> and take note of the inventory of keys available. There should be two keys listed: <code>TechZone-UKO-Key</code> and <code>UKO-Azure-Test-Key</code>.</li>
 </ol>
 <hr />
-<p><img alt="" src="../_attachments/module1_figure9.png" /></p>
+<p><img alt="" src="../_attachments/module1_figure13.png" /></p>
 <hr />
-<ol start="13">
-<li>
-<p>Click the <strong>Desktop</strong> link in the email or navigate to <strong><a href="https://techzone.awsapps.com/start" target="_blank">https://techzone.awsapps.com/start</a></strong> to get started.</p>
-</li>
-<li>
-<p>When prompted, authenticate using your personal IBMid to continue to the AWS dashboard, as shown below.</p>
-</li>
+<ol start="3">
+<li>Along the top-right corner of the <strong>Managed Keys</strong> table, locate and click the blue <strong>Create Key +</strong> button, as shown.</li>
 </ol>
 <hr />
-<p><img alt="" src="../_attachments/module1_figure10.png" /></p>
+<p><img alt="" src="../_attachments/module1_figure14.png" /></p>
 <hr />
-<ol start="15">
-<li>Click on the <code>AWS Account (1)</code> tile and drill down into the <strong>UKO User Management Console</strong>, which will redirect the web browser to a page resembling the following screenshot.</li>
-</ol>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure11.png" /></p>
-<hr />
-<ol start="16">
+<p>You will be asked to supply the following information as part of the key definition:</p>
+<ul>
 <li>
-<p>Under the <strong>Console Home</strong> panel, multiple links are provided: <code>Key Management Service</code>, <code>IAM</code>, <code>AWS Budgets</code>, <code>AWS Organizations</code>, and so on. Select the <strong>Key Management Service</strong> link.</p>
+<p>Specify the <strong>Target Vault</strong>: <code>Tech Zone Vault</code></p>
 </li>
 <li>
-<p>From the drop-down in the top-right corner of the AWS dashboard, ensure that the <strong>US East (N. Virginia)</strong> region is selected. It should be set as such by default, but if it has been configured to something else, set it back to US East.</p>
+<p>Specify the <strong>Keystore Type</strong>: <code>AWS Key Management Service</code></p>
 </li>
-</ol>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure12.png" /></p>
+<li>
+<p>Specify the <strong>Key Properties</strong>, which include: a unique <code>Name</code>; <code>State: Active</code>; and <code>Expiration Date</code> set three days into the future.</p>
+</li>
+</ul>
 <div class="admonition warning">
-<p class="admonition-title">CAUTION</p>
-<p><strong>Do not modify or delete this key.</strong> If the key does not appear, verify that the <code>US East (N. Virginia)</code> region was selected in Step 17. If the key is still missing, reach out to the author of this documentation.</p>
+<p class="admonition-title">SHARED ENVIRONMENT<p>When selecting a <code>Name</code> for your key, be aware that other sellers and business partners enrolled in this Level 3 course will be able to see keys created in the shared HPCS environment. Do not use the names of clients or other confidential information as part of your key definition.</p>
+</p>
 </div>
-<hr />
-<ol start="18">
-<li>Drill down into <strong>Key Management Service</strong> &gt; <strong>Customer-managed keys</strong>: confirm that under the <em>Aliases</em> column should be <code>TechZone-UKO-Key</code>.</li>
-</ol>
-<h1 id="_3"></h1>
-<h1 id="next-steps">Next steps</h1>
-<p>Now that you have successfully provisioned and gained access to both IBM Cloud HPCS and AWS Key Management Service, we will next go ahead with generating your own key in AWS Keystore.</p>
 
 
 
@@ -568,7 +467,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../01%20Introduction%20to%20HPCS%20and%20UKO/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction to HPCS and UKO" rel="prev">
+        <a href="../02-Provision-and-access/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Provision and access an IBM Technology Zone environment" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -577,7 +476,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Introduction to HPCS and UKO
+              Provision and access an IBM Technology Zone environment
             </div>
           </div>
         </a>
