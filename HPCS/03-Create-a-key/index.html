@@ -473,6 +473,63 @@
 <hr />
 <p><img alt="" src="../_attachments/module1_figure16.png" /></p>
 <hr />
+<h1 id="_3"></h1>
+<h1 id="test-the-key-by-encrypting-aws-s3-bucket-contents">Test the key by encrypting AWS S3 bucket contents</h1>
+<ol start="6">
+<li>
+<p>Locate the search bar at the top of the AWS dashboard. Search for <code>s3</code> and click on the <strong>AWS S3</strong> service result.</p>
+</li>
+<li>
+<p>Wait for the AWS S3 dashboard to load. From the left-hand side of the interface, drill down into <strong>Buckets</strong> and then click the orange <strong>Create Bucket</strong> button as shown.</p>
+</li>
+</ol>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure17.png" /></p>
+<hr />
+<p>Provide the following details as you create a new S3 bucket:</p>
+<ul>
+<li>
+<p><strong>Name</strong>: Set to a unique identifier of your choosing.</p>
+</li>
+<li>
+<p><strong>Region</strong>: Set to <code>US East (N. Virginia)</code> to match the region where your encryption key is located.</p>
+</li>
+<li>
+<p>Leave the <strong>ACLs</strong> and <strong>Bucket Versioning</strong> fields as <code>Disabled</code>.</p>
+</li>
+<li>
+<p><strong>Encryption</strong> set to <code>ENABLED</code> with the <code>AWS Key Management Service Key (SSE-KMS)</code> option selected.</p>
+</li>
+<li>
+<p>Select the <strong>Choose from your AWS KMS keys</strong> option and specify the unique key generated in <code>Step 5</code> from the dropdown menu. <em>Note:</em> The key will need to be identified by the <code>KeyID</code> field (found within the KMS Console in AWS); it will not be listed under the <code>Name</code> identifier you assigned upon key generation.</p>
+</li>
+</ul>
+<p>Review the selections made and when satisfied click the <strong>Create Bucket</strong> option to continue.</p>
+<ol start="8">
+<li>
+<p>After creating the S3 bucket, the web browser will redirect back to the <strong>AWS S3</strong> dashboard. Scroll down the page until you reach <strong>Buckets</strong> table and locate the newly-created bucket in the list. Click the name of the bucket to drill down further.</p>
+</li>
+<li>
+<p>With the bucket selected, click the orange <strong>Upload</strong> button and select a small file from your machine (one of the L3 lab documents, for example) to upload. No sensitive or confidential information, please. Wait for the asset to upload and be listed as an <strong>Object</strong> within the bucket.</p>
+</li>
+</ol>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure18.png" /></p>
+<hr />
+<ol start="10">
+<li>
+<p>Click on the file name to see the object properties.</p>
+</li>
+<li>
+<p>To ensure that the file was properly uploaded and available for download, click on the <strong>Download</strong> button in the top-right corner of the interface. Open the file on your desktop to verify its integrity.</p>
+</li>
+</ol>
+<hr />
+<p><img alt="" src="../_attachments/module1_figure19.png" /></p>
+<hr />
+<h1 id="_4"></h1>
+<h1 id="next-steps">Next steps</h1>
+<p>With the AWS S3 bucket and encryption key now prepared, we will demonstrate how to digitally shred objects within AWS S3 using the HPCS Unified Key Orchestrator.</p>
 
 
 
