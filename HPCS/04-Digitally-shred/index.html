@@ -413,7 +413,7 @@
 
 
 <h1 id="_1"></h1>
-<h1 id="digitally-shred-aws-s3-bucket-objects-with-unified-key-orchestrator">Digitally shred AWS S3 bucket objects with <strong>Unified Key Orchestrator</strong></h1>
+<h1 id="digitally-shred-aws-s3-bucket-objects-with-unified-key-orchestrator">Digitally shred AWS S3 bucket objects with Unified Key Orchestrator</h1>
 <p>Owing to the steps taken in the previous section, all objects housed within in the AWS S3 bucket are now encrypted using a uniquely-generated encryption key. Recall that this key— which you defined —was generated using the Unified Key Orchestrator (UKO) utility of IBM Cloud HPCS. By deactivating this key via UKO on IBM Cloud, any data encrypted with the key (including the bucket storage on AWS S3) will become inaccesible.</p>
 <p>In effect, disabling the encryption key will <strong>digitally shred</strong> all data encrypted with said key. This is incredibly useful for rendering inert and inaccessible vast amounts of encrypted data with a single action; far more expedient than seeking out and shredding (through some other process) assets on an individual basis.</p>
 <ol>
