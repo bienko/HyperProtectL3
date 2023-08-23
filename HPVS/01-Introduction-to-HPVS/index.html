@@ -414,13 +414,21 @@
 
 <h1 id="_1"></h1>
 <h1 id="ibm-cloud-hyper-protect-virtual-servers-for-vpc">IBM Cloud Hyper Protect Virtual Servers for VPC</h1>
-<p><img alt="type:video" src="./_videos/Part 2a - Deploy a Virtual Machine - Red Hat Ansible Automation Platform Level 3 for Sales and Technical Sales.mp4" /></p>
 <div class="admonition tip">
-<p class="admonition-title">WAYS TO WATCH</p>
-<p>In addition to the embedded video, IBMers and Business Partners can also <a href="https://ibm.seismic.com/Link/Content/DC3cV2Vm8jFgV8227jV8M3BcGgCV" target="_blank">download the recording from Seismic</a>.</p>
+<p class="admonition-title">IBM CLOUD ACCOUNT REQUIRED</p>
+<p><a href="https://cloud.ibm.com/registration" target="_blank">Sign up for an IBM Cloud account</a> (this will be linked with your w3ID if you are an IBMer) before continuing with this module.</p>
 </div>
 <p><code>IBM Cloud Hyper Protect Virtual Servers for Virtual Private Cloud (VPC)</code>, which we will refer to as <strong>HPVS</strong> in shorthand, provides a Confidential Computing solution for compute instances in the public cloud. The result is that data within a Hyper Protect instance remains protected in all three stages of the data lifecycle: at-rest, in-flight, <em>AND</em> in-memory / in-use. This is achieved with the technical assurance that workloads and applications can run in the public cloud with full peace of mind for clients.</p>
-<p>In the following hands-on demonstration, sellers and business partners will learn:learn:</p>
+<hr />
+<p><a href="https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6" target="_blank">
+<img alt="" src="_attachments/module1_figure1.png" />
+</a></p>
+<div class="admonition tip">
+<p class="admonition-title">WATCH</p>
+<p><a href="https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6" target="_blank">Follow the link</a> to learn more about Confidential Computing for a financial transaction using HPVS.</p>
+</div>
+<hr />
+<p>In the following hands-on demonstration, sellers and business partners will learn:</p>
 <ul>
 <li>
 <p>How to configure and provision an HPVS instance on IBM Cloud</p>
@@ -432,7 +440,7 @@
 <p>How HPVS' Confidential Computing can protect Personally Identifiable Information (PII)</p>
 </li>
 <li>
-<p>Additional details about how <code>Contracts</code> are needed to create an IBM Cloud Hyper Protect Virtual Servers for VPC instance with the IBM Hyper Protect Container Runtime (HPCR) image</p>
+<p>How <code>Contracts</code> are needed to create an IBM Cloud Hyper Protect Virtual Servers for VPC instance with the IBM Hyper Protect Container Runtime (HPCR) image</p>
 </li>
 </ul>
 <div class="admonition warning">
@@ -441,47 +449,17 @@
 <p>For IBM sellers and technical sellers that need to record a Stand &amp; Deliver presentation, it is recommended that you record the process of configuring the HPVS instance in IBM Cloud, but that you <strong>DO NOT</strong> finalize and deploy the environment.</p>
 <p>Closely following the instructions of this lab will result in no charges to the user. Deviation from the instructions may potentially result in IBM Cloud account charges. Those enrolled in this Level 3 course are responsible for all personal costs that may incurred to their IBM Cloud account.</p>
 </div>
-<p><code>IBM Cloud Hyper Protect Crypto Services</code> (<strong>HPCS</strong>) provides data encryption that’s protected by a dedicated cloud hardware security module and enables multicloud key management. UKO, a component of HPCS, is what enables key orchestration across these multicloud environments. HPCS is built on <a href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3410" target="_blank">FIPS 140-2 Level 4</a> certified hardware, the highest level in the industry.</p>
-<p><code>Unified Key Orchestrator</code> (<strong>UKO</strong>) is a multi-cloud key management solution offered as a managed service on IBM Cloud. Built on ‘Keep Your Own Key’ (KYOK), UKO helps enterprises manage their data encryption keys over multiple key stores and across multiple clouds environments. These key environments include managed on-premises stores and keys on IBM Cloud, AWS, and Microsoft Azure. UKO manages and orchestrates these security policies from a single point of control.</p>
-<div class="admonition note">
-<p class="admonition-title">BRING YOUR OWN KEY vs. KEEP YOUR OWN KEY</p>
-<p>How does the "Keep Your Own Key" (KYOK) approach of UKO differ from "Bring Your Own Key" (BYOK)?</p>
+<hr />
+<p>Additional HPVS resources that may be beneficial to seller and business partners are available online:</p>
 <ul>
 <li>
-<p><strong>BYOK</strong> is a way for clients to use their own keys to encrypt data. Key management services that provide BYOK are typically multi-tenant services. With these services, users can import encryption keys from on-premises hardware security modules (HSM) and then manage the keys.</p>
+<p><a href="https://ibm.seismic.com/Link/Content/DCh3bFWfQDfhHG7DT3VFc6fG9H83" target="_blank"><strong>Sales Kit (Seismic) for HPVS</strong></a></p>
 </li>
 <li>
-<p><strong>KYOK</strong> includes all of the capabilities of BYOK, but also provides technical assurances that IBM cannot access a client's keys. With KYOK, clients have exclusive control of the entire key hierarchy, including that of the master key.</p>
+<p><a href="https://www.ibm.com/downloads/cas/GPVMWPM3" target="_blank">Whitepaper (PDF): "The Second Generation of IBM Hyper Protect Platform"</a></p>
 </li>
 </ul>
-</div>
-<p>The following table provides further details on the differences between BYOK and KYOK:</p>
-<hr />
-<p><img alt="" src="_attachments/module1_figure1.png" /></p>
-<hr />
 <h1 id="_2"></h1>
-<h1 id="key-benefits-to-hpcs-clients">Key benefits to HPCS clients</h1>
-<ul>
-<li>
-<p><strong>Lifecycle management for keys</strong>: A GUI and a REST API track keys as they progress. Deleted data is no longer retrievable, regardless of the application that stored it. <a href="https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-key-states&_gl=1*14u3d9u*_ga*MTY1MTIxMjE0OS4xNjg1NjQ2OTQ2*_ga_FYECCCS21D*MTY5MDkyNzA2MC4yNy4wLjE2OTA5MjcwNjAuMC4wLjA" target="_blank">Learn more.</a></p>
-</li>
-<li>
-<p><strong>Encryption for IBM Cloud services</strong>: IBM Cloud services can integrate with this product. Clients receive a common-key-provider API for a consistent approach in IBM Cloud adoption. <a href="https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-integrate-services&_gl=1*z4fp1c*_ga*MTY1MTIxMjE0OS4xNjg1NjQ2OTQ2*_ga_FYECCCS21D*MTY5MDkyNzA2MC4yNy4xLjE2OTA5Mjc2OTkuMC4wLjA" target="_blank">Learn more.</a></p>
-</li>
-<li>
-<p><strong>Multicloud key management</strong>: Extend protection across cloud deployments. Manage all keys in one place, with added protection and simplicity. <a href="https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-introduce-uko&_gl=1*z4fp1c*_ga*MTY1MTIxMjE0OS4xNjg1NjQ2OTQ2*_ga_FYECCCS21D*MTY5MDkyNzA2MC4yNy4xLjE2OTA5Mjc2OTkuMC4wLjA" target="_blank">Learn more.</a></p>
-</li>
-<li>
-<p><strong>Security certification</strong>: The service is built on FIPS 140-2 Level-4-certified hardware—the highest offered by any cloud provider in the industry. <a href="https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-security-and-compliance&_gl=1*7efpsq*_ga*MTY1MTIxMjE0OS4xNjg1NjQ2OTQ2*_ga_FYECCCS21D*MTY5MDkyNzA2MC4yNy4xLjE2OTA5Mjc2OTkuMC4wLjA" target="_blank">Learn more.</a></p>
-</li>
-<li>
-<p><strong>HSM control</strong>: Single-tenant, dedicated HSMs are controlled by you. IBM Cloud administrators have no access. <a href="https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-introduce-cloud-hsm&_gl=1*7efpsq*_ga*MTY1MTIxMjE0OS4xNjg1NjQ2OTQ2*_ga_FYECCCS21D*MTY5MDkyNzA2MC4yNy4xLjE2OTA5Mjc2OTkuMC4wLjA" target="_blank">Learn more.</a></p>
-</li>
-<li>
-<p><strong>Key ceremony</strong>: IBM is the first to provide cloud command-line interface (smart cards) for the HSM key ceremony. <a href="https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-introduce-service&_gl=1*7efpsq*_ga*MTY1MTIxMjE0OS4xNjg1NjQ2OTQ2*_ga_FYECCCS21D*MTY5MDkyNzA2MC4yNy4xLjE2OTA5Mjc2OTkuMC4wLjA" target="_blank">Learn more.</a></p>
-</li>
-</ul>
-<h1 id="_3"></h1>
 <h1 id="next-steps">Next steps</h1>
 <p>In the following section, you will need to review the pre-requisites and follow the provisioning instructions for setting up your IBM Technology Zone environment.</p>
 
