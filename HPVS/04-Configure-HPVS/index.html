@@ -17,7 +17,7 @@
     
     
       
-        <title>Creation of a Contract for PayNow Application via Terraform - IBM Cloud Hyper Protect Services Level 3 for Sales and Technical Sales</title>
+        <title>Configuration of a Hyper Protect Virtual Servers for VPC Instance on IBM Cloud - IBM Cloud Hyper Protect Services Level 3 for Sales and Technical Sales</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creation of a Contract for PayNow Application via Terraform
+              Configuration of a Hyper Protect Virtual Servers for VPC Instance on IBM Cloud
             
           </span>
         </div>
@@ -382,6 +382,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../03-Contract-Creation/" class="md-nav__link">
+        Creation of a Contract for PayNow Application via Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -394,23 +408,9 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Creation of a Contract for PayNow Application via Terraform
-      </a>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04-Configure-HPVS/" class="md-nav__link">
         Configuration of a Hyper Protect Virtual Servers for VPC Instance on IBM Cloud
       </a>
+      
     </li>
   
 
@@ -455,42 +455,148 @@
 
 
 <h1 id="_1"></h1>
-<h1 id="creation-of-a-contract-for-paynow-application-via-terraform">Creation of a Contract for PayNow Application via Terraform</h1>
+<h1 id="configuration-of-a-hyper-protect-virtual-servers-for-vpc-instance-on-ibm-cloud">Configuration of a Hyper Protect Virtual Servers for VPC Instance on IBM Cloud</h1>
 <ol>
-<li>On your local machine, in a directory of your choosing, execute the following command to clone an IBM Hyper Protect git repository:</li>
+<li>From the IBM Cloud dashboard, click the stack icon in the top-left corner of the interface to expand the drop-down menu options.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples.git
-</code></pre></div>
 <hr />
 <ol start="2">
-<li>Navigate to the newly created (cloned) repository:</li>
+<li>From the left-side menu, drill down into <code>VPC Infrastructure</code> &gt; <code>Compute</code> &gt; <code>Virtual Server Instances</code>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd linuxone-vsi-automation-samples/terraform-hpvs/create-contract
-</code></pre></div>
 <hr />
 <ol start="3">
-<li>Navigate deeper into the "compose" subdirectory and edit the contents of the <code>docker-compose.yml</code> YAML file. It is recommended that you use the <code>VI</code> editor, but you can use whichever editor you prefer.</li>
+<li>Once the details page for <code>Virtual Server Instances for VPC</code> has loaded, select the <code>Create +</code> blue icon near the top-right corner of the interface. This will redirect the web browser to the configuration screen.</li>
 </ol>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd compose
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vi docker-compose.yml
-</code></pre></div></p>
 <hr />
 <ol start="4">
-<li>Copy and replace the contents of the <code>docker-compose.yml</code> file with the lines of code below. Be careful to match the indentation and whitespacing exactly as given below, as YAML files use indentation to parse instructions. When satisfied, save the changes and exit the file.</li>
+<li>The instructions that follow will guide you, top to bottom, across each of the configuration fields available for <code>Virtual Server Instances for VPC</code>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>version: &quot;3&quot;
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>services:
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  paynow:
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    image: ghcr.io/ibm-hyper-protect/paynow-website@sha256:85765a17f14914f4d3223d75a84a3680de8e1b6a48d56f3363d68b02c93246f4
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    ports:
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>      - &quot;8080:8080&quot;
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>      - &quot;8443:8443&quot;
-</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">IBM CLOUD IS CONTINUOUSLY UPDATING</p>
+<p>Be aware that the IBM Cloud interface is continuously evolving and updating; it may be the case that the order of these options, or the exact specifications/fields that they offer, may differ slightly from the lab guide instructions or accompanying video recordings.</p>
+</div>
+<hr />
+<p><strong>SERVER TYPE</strong></p>
+<ul>
+<li>Specify the architecture for your VPC instance. Select the option for <code>IBM Z, LinuxONE</code>.</li>
+</ul>
+<p><strong>CONFIDENTIAL COMPUTING</strong></p>
+<ul>
+<li>Switch this to <code>ON</code>. Note that the Confidential Compute option on the configuration page is only available when selecting a Z/LinuxONE architecture. If you change the Server Type to a different (non-IBM Systems) type of architecture, the Confidential Compute option is unavailable.</li>
+</ul>
+<p><strong>LOCATION</strong></p>
+<ul>
+<li>Select the location in which you wish the VPC instance to be deployed.</li>
+</ul>
+<p><strong>DETAILS</strong></p>
+<ul>
+<li>Provide a name for your VPC (for example, <code>paynow-demo</code>) and a resource group (any resource group to which your account belongs is acceptable).</li>
+</ul>
+<p><strong>IMAGE AND PROFILE</strong></p>
+<ul>
+<li>
+<p><em>Image</em> should be set automatically to <code>Hyper Protect</code>. This is a result of our activation of the Confidential Computing option earlier in the configuration steps. Click the <code>Change Image</code> button to the right of the table to specify which version of IBM Hyper Protect that you wish to utilize for this deployment. At the time of publishing, there are two options (version 10 and 11) available. Version 10 supports Docker containerization, whilst Version 11 supports Podman containers. It is recommended that you use the latest Image version (11 or higher).</p>
+</li>
+<li>
+<p><em>Profile</em> should be set to <code>Balanced</code> and can be adjusted by clicking the <code>Change Profile</code> button to the right of the table. By default, Profile will automatically be configured for "Balanced", which corresponds to the lowest-cost (but also lowest-performing) configuration of the VPC Profile. If a real-world demonstration of this technology requires additional vPCUs, memory, bandwidth, and so on, then it is recommend that you increase the Profile value as appropriate. Higher-tier Profiles are available from the drop-down menu and come at greater cost compared to the default ("Balanced") configuration.</p>
+</li>
+</ul>
+<p><strong>SSH KEYS</strong></p>
+<ul>
+<li>SSH keys are optional for every VPC deployment, and in the case of this lab they are <strong>NOT</strong> required. Leave this field as blank.</li>
+</ul>
+<p><strong>STORAGE</strong></p>
+<ul>
+<li>
+<p><em>Boot Volume</em>: Leave as the default recommendation. Users have the option to supply their own storage as a boot volume if they wish, but it is <strong>NOT</strong> required for this lab.</p>
+</li>
+<li>
+<p><em>Data Volumes</em>: By default, this table is empty for most users — and because data volumes are <strong>NOT</strong> required for the purposes of this lab, you may ignore this field.</p>
+</li>
+</ul>
+<p><strong>NETWORKING</strong></p>
+<ul>
+<li>A default virtual private cloud network will be generated by IBM Cloud automatically. You may keep the existing network (recommended) or create one of your own.</li>
+</ul>
+<p><strong>NETWORK INTERFACES</strong></p>
+<ul>
+<li>A network interface is automatically defined by IBM Cloud. It is recommended that you use the default value, rather than define one yourself.</li>
+</ul>
+<p><strong>ADVANCED OPTIONS</strong></p>
+<ul>
+<li><em>User Data</em>: click on the title / box to expand the options available to you. This is the field into which you must supply the <strong>Terraform-generated Contract</strong> that was created earlier. You may either copy and paste the contract details directly into the text field, or upload a Contract document from your desktop.</li>
+</ul>
 <hr />
 <ol start="5">
-<li>IBM Cloud resources ("the provider" in Terraform) need to be configured with the proper credentials before they can be used in conjunction with Terraform. Additional information can be found online: <a href="https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#authentication" target="_blank">https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#authentication</a></li>
+<li>At this stage, the VPC has been fully configured and could potentially be deployed into a live environment. Beyond this point, your personal IBM account and credit card WILL BE BILLED — unless you are willing to accrue and pay these charges, you should back out now from the configuration screen on IBM Cloud.</li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">COSTS</p>
+<p>Due to costs that potentially may be incurred from deploying a live VPC or HPVS instance on IBM Cloud— and because sellers and partners must use their own <em>personal</em> IBM Cloud accounts for previewing the IBM Cloud catalog —it is recommended that those taking this course <strong>DO NOT</strong> deploy any HPVS instances for this Level 3 training, unless:</p>
+<ul>
+<li>
+<p>You have a valid client opportunity number, in which case you may use that code to apply for a Hyper Protect Services "Proof of Concept" engagement — which will fund the demo environment for your client opportunity. Follow the procedures outlined HERE for how to apply.</p>
+</li>
+<li>
+<p>You have access to an IBM internal paid account for IBM Cloud, in which case billing will be charged to your respective IBM department, instead of your personal account. Follow the procedures outlined HERE for how to apply.</p>
+</li>
+<li>
+<p>You are willing to accept the charges to your personal IBM account and the credit card associated with that account. The IBM enablement team cannot reimburse such costs and any costs taken on by the IBM account are the responsibility of the user.</p>
+</li>
+</ul>
+<p><strong>IBM sellers and technical sellers</strong>, who are required to produce a Stand &amp; Deliver recording of the hands-on demonstration as part of their accreditation process, you will NOT be required to show (on screen) anything beyond the initial configuration steps for Hyper Protect Virtual Servers for VPC on IBM Cloud. Do not deploy the instance, unless you are prepared to finance it on your personal IBM Cloud account. Furthermore, you are not required to record any of the steps involving the hypothetical PayNow application, as doing so would require deployment of a live instance.</p>
+<p><strong>IBM business partners</strong>, who receive accreditation via a passing grade on a multiple-choice test, will only need to answer questions based on the initial configuration steps of Hyper Protect Virtual Servers for VPC on IBM Cloud. Quiz questions will not cover the screen readouts or other material involving either the PayNow application or a fully deployed instance. As mentioned previously, do not deploy the IBM Cloud instance into a live state unless you are prepared to self-finance any potential billing on your personal IBM Cloud account.</p>
+</div>
+<h1 id="_2"></h1>
+<h1 id="optional-it-is-recommended-that-you-follow-along-and-read-the-instructions-given-below-but-due-to-the-potential-cost-obligations-it-is-not-required-that-you-perform-these-tasks-yourself-unless-you-are-willing-to-incur-the-costs-to-your-personal-ibm-cloud-account"><strong>Optional</strong>: It is recommended that you follow along and read the instructions given below. But due to the potential cost obligations, it is not required that you perform these tasks yourself unless you are willing to incur the costs to your personal IBM Cloud account.</h1>
+<ol start="6">
+<li>If you do create an instance (using the <code>Create Virtual Server</code> button) at this point, the IBM Cloud dashboard will automatically redirect back to the <code>Virtual Server Instances for VPC</code> dashboard, where you can watch the progress of the VPC instance as it provisions.</li>
+</ol>
+<hr />
+<ol start="7">
+<li>To track the progress of the deployment in further detail, look along the far right side of the provisioning VPC instance for an icon resembling three vertically stacked dots. Click that icon to open up a drop-down menu and select the <code>Open Serial Console</code> button from the options.</li>
+</ol>
+<hr />
+<ol start="8">
+<li>After the <code>Serial Console</code> has loaded, wait for the console terminal output to read <em>"Configuring logging..."</em> and <em>"Sending logging probe to..."</em>, similar to the messages captured in the following screenshot.</li>
+</ol>
+<p>Once those messages (or something quite similar — the variables for your particular instance may vary) the provisioning of the VPC instance is complete. Return to the <code>Virtual Server Instances for VPC</code> dashboard on the IBM Cloud page.</p>
+<hr />
+<ol start="9">
+<li>Click the name of the deployed <code>paynow-demo</code> instance from the table to drill down into the instance details.</li>
+</ol>
+<hr />
+<ol start="10">
+<li>Once the details panel has finished loading, scroll down to the bottom of the page and locate the <code>Network Interfaces</code> section. A single interface should be listed, corresponding to the default subnet that was selected in the <em>Networking</em> section of the IBM Cloud configuration steps that were performed earlier.</li>
+</ol>
+<hr />
+<ol start="11">
+<li>On the far-right side of the table entry, click the <code>Edit</code> (pencil) icon to pull open an <code>Edit Network Interface</code> panel.</li>
+</ol>
+<hr />
+<ol start="12">
+<li>Within the <code>Floating IP Address</code> field, change the value to <em>Reserve a new floating IP</em>. Once satisfied, click <code>Save</code> and the details panel will close.</li>
+</ol>
+<hr />
+<ol start="13">
+<li>Notice that the IBM Cloud dashboard will refresh and a new <code>Floating IP Address</code> is now assigned to the <em>Network Interfaces</em> section. Now you are ready to examine the PayNow application user interface.</li>
+</ol>
+<hr />
+<ol start="14">
+<li>Copy the <code>Floating IP Address</code> from the <em>Network Interfaces</em> section. Open a new web browser and into the address field enter:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://FLOATING_IP_ADDRESS:8443
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">ADDRESS AND PORT NUMBER</p>
+<p>Note that <code>:8443</code> denotes the port address. Replace the <code>FLOATING_IP_ADDRESS</code> characters with the value unique to your environment.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">WARNING</p>
+<p>You may receive a warning error about a <em>Potential Security Risk Ahead</em>, an <em>Unsecured Website</em>, or so on. You can safely ignore this error and proceed to the web page.</p>
+</div>
+<hr />
+<p>Your web browser will now open to the hosted <strong>PayNow</strong> application web portal.</p>
 
 
 
@@ -509,7 +615,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../02-Prerequites-and-Preparation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Prerequisites and Preparation" rel="prev">
+        <a href="../03-Contract-Creation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creation of a Contract for PayNow Application via Terraform" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -518,26 +624,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Prerequisites and Preparation
+              Creation of a Contract for PayNow Application via Terraform
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../04-Configure-HPVS/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration of a Hyper Protect Virtual Servers for VPC Instance on IBM Cloud" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Configuration of a Hyper Protect Virtual Servers for VPC Instance on IBM Cloud
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
