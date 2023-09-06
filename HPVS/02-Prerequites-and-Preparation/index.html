@@ -444,18 +444,21 @@
 </li>
 <li>
 <p>Execute the following instructions to install the Homebrew package manager:
-<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre></div></p>
 </li>
 <li>
 <p>Follow the instructions provided during the Homebrew installation to add Homebrew to your machine's local PATH.</p>
 </li>
 <li>
 <p>Once the installation of Homebrew is complete, execute the following command to install Git:
-<code>brew install git</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>brew install git
+</code></pre></div></p>
 </li>
 <li>
 <p>After installation has concluded, verify the Git install using the following statement:
-<code>git version</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git version
+</code></pre></div></p>
 </li>
 </ul>
 </div>
@@ -472,7 +475,9 @@
 <p>Open the windows command prompt (or Git Bash if you selected not to use the standard Git Windows Command Prompt during the Git installation).</p>
 </li>
 <li>
-<p>Execute <code>git version</code> to verify Git was installed.</p>
+<p>Execute the following to verify Git was installed:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git version
+</code></pre></div></p>
 </li>
 </ul>
 </div>
@@ -486,10 +491,12 @@
 <li>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</li>
 </ol>
 <p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
-<p><code>ssh-keygen -t rsa</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh-keygen -t rsa
+</code></pre></div>
 <p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
 <p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
-<p><code>open .</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>open .
+</code></pre></div>
 <hr />
 <ol start="5">
 <li>From the IBM Cloud web interface, provision a <strong>Lite plan</strong> of the <strong>IBM Log Analysis</strong> service from the following page: <a href="https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate" target="_blank">https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate</a></li>
@@ -512,21 +519,31 @@
 <li>Install the <strong>OpenSSL binary</strong> on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a></li>
 </ol>
 <p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:</p>
-<p><code>git clone git://git.openssl.org/openssl.git</code>
-<code>cd openssl</code>
-<code>git config core.autocrlf false</code>
-<code>git config core.eol lf</code>
-<code>git checkout .</code></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git clone git://git.openssl.org/openssl.git
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cd openssl
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git config core.autocrlf false
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git config core.eol lf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git checkout .
+</code></pre></div></p>
 <hr />
 <ol start="7">
 <li>Install the <strong>Terraform CLI</strong> on your local machine. Detailed instructions and video instructions for doing so are provided online: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli" target="_blank">https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli</a></li>
 </ol>
 <p>You may either follow the detailed instructions (linked above) or execute the condensed instructions (line by line) below:</p>
-<p><code>brew tap hashicorp/tap</code>
-<code>brew install hashicorp/tap/terraform</code>
-<code>brew update</code>
-<code>brew upgrade hashicorp/tap/terraform</code>
-<code>terraform -version</code></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>brew tap hashicorp/tap
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>brew install hashicorp/tap/terraform
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>brew update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>brew upgrade hashicorp/tap/terraform
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>terraform -version
+</code></pre></div></p>
 <h1 id="_2"></h1>
 <h1 id="next-steps">Next steps</h1>
 <p>In the following section, you will use these tools and technologies to generate a <code>Contract</code> for creation of an HPVS instance with the IBM Hyper Protect Container Runtime (HPCR) image.</p>
