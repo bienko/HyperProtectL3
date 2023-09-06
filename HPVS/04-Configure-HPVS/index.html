@@ -528,8 +528,9 @@
 </ul>
 <hr />
 <ol start="5">
-<li>At this stage, the VPC has been fully configured and could potentially be deployed into a live environment. Beyond this point, your personal IBM account and credit card WILL BE BILLED — unless you are willing to accrue and pay these charges, you should back out now from the configuration screen on IBM Cloud.</li>
+<li>At this stage, the VPC has been fully configured and could potentially be deployed into a live environment. Beyond this point, your personal IBM account and credit card <strong>WILL BE BILLED</strong> — unless you are willing to accrue and pay these charges, you should back out now from the configuration screen on IBM Cloud.</li>
 </ol>
+<hr />
 <div class="admonition warning">
 <p class="admonition-title">COSTS</p>
 <p>Due to costs that potentially may be incurred from deploying a live VPC or HPVS instance on IBM Cloud— and because sellers and partners must use their own <em>personal</em> IBM Cloud accounts for previewing the IBM Cloud catalog —it is recommended that those taking this course <strong>DO NOT</strong> deploy any HPVS instances for this Level 3 training, unless:</p>
@@ -548,7 +549,7 @@
 <p><strong>IBM business partners</strong>, who receive accreditation via a passing grade on a multiple-choice test, will only need to answer questions based on the initial configuration steps of Hyper Protect Virtual Servers for VPC on IBM Cloud. Quiz questions will not cover the screen readouts or other material involving either the PayNow application or a fully deployed instance. As mentioned previously, do not deploy the IBM Cloud instance into a live state unless you are prepared to self-finance any potential billing on your personal IBM Cloud account.</p>
 </div>
 <h1 id="_2"></h1>
-<h1 id="optional-it-is-recommended-that-you-follow-along-and-read-the-instructions-given-below-but-due-to-the-potential-cost-obligations-it-is-not-required-that-you-perform-these-tasks-yourself-unless-you-are-willing-to-incur-the-costs-to-your-personal-ibm-cloud-account"><strong>Optional</strong>: It is recommended that you follow along and read the instructions given below. But due to the potential cost obligations, it is not required that you perform these tasks yourself unless you are willing to incur the costs to your personal IBM Cloud account.</h1>
+<h1 id="optional-it-is-recommended-that-you-follow-along-and-read-the-instructions-given-below-but-due-to-the-potential-cost-obligations-it-is-not-required-that-you-perform-these-tasks-yourself-unless-you-are-willing-to-incur-the-expenses-to-your-personal-ibm-cloud-account"><strong>Optional</strong>: It is recommended that you follow along and read the instructions given below. But due to the potential cost obligations, it is not required that you perform these tasks yourself — unless you are willing to incur the expenses to your personal IBM Cloud account.</h1>
 <ol start="6">
 <li>If you do create an instance (using the <code>Create Virtual Server</code> button) at this point, the IBM Cloud dashboard will automatically redirect back to the <code>Virtual Server Instances for VPC</code> dashboard, where you can watch the progress of the VPC instance as it provisions.</li>
 </ol>
@@ -558,9 +559,8 @@
 </ol>
 <hr />
 <ol start="8">
-<li>After the <code>Serial Console</code> has loaded, wait for the console terminal output to read <em>"Configuring logging..."</em> and <em>"Sending logging probe to..."</em>, similar to the messages captured in the following screenshot.</li>
+<li>After the <code>Serial Console</code> has loaded, wait for the console terminal output to read <em>"Configuring logging..."</em> and <em>"Sending logging probe to..."</em>, similar to the messages captured in the following screenshot. Once those messages (or something quite similar — the variables for your particular instance may vary) the provisioning of the VPC instance is complete. Return to the <code>Virtual Server Instances for VPC</code> dashboard on the IBM Cloud page.</li>
 </ol>
-<p>Once those messages (or something quite similar — the variables for your particular instance may vary) the provisioning of the VPC instance is complete. Return to the <code>Virtual Server Instances for VPC</code> dashboard on the IBM Cloud page.</p>
 <hr />
 <ol start="9">
 <li>Click the name of the deployed <code>paynow-demo</code> instance from the table to drill down into the instance details.</li>
@@ -588,8 +588,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://FLOATING_IP_ADDRESS:8443
 </code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">ADDRESS AND PORT NUMBER</p>
-<p>Note that <code>:8443</code> denotes the port address. Replace the <code>FLOATING_IP_ADDRESS</code> characters with the value unique to your environment.</p>
+<p class="admonition-title">ADDRESS AND PORT</p>
+<p>Note that <code>:8443</code> denotes the port address of the PayNow application. Replace the <code>FLOATING_IP_ADDRESS</code> characters with the value unique to your environment.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">WARNING</p>
