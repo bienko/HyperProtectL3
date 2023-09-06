@@ -429,7 +429,7 @@
 <h1 id="_1"></h1>
 <h1 id="prerequisites-and-preparation">Prerequisites and Preparation</h1>
 <ol>
-<li>Sign up for an IBM Cloud account and IBMid using the following link: <a href="https://cloud.ibm.com/registration" target="_blank">https://cloud.ibm.com/registration</a></li>
+<li>Sign up for an <strong>IBM Cloud account</strong> and IBMid using the following link: <a href="https://cloud.ibm.com/registration" target="_blank">https://cloud.ibm.com/registration</a></li>
 </ol>
 <p>You will be asked to supply a credit card to be associated with the account. Any billing you accrue on your IBM Cloud account will be billed at the next IBM Cloud billing cycle to that credit card.</p>
 <hr />
@@ -460,7 +460,7 @@
 </ul>
 </div>
 <div class="admonition note">
-<p class="admonition-title">WINDOWS</p>
+<p class="admonition-title">Windows</p>
 <ul>
 <li>
 <p>Visit the <a href="https://gitforwindows.org/" target="_blank">Git for Windows page</a> and download the latest version to your machine.</p>
@@ -485,10 +485,11 @@
 <ol start="4">
 <li>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</li>
 </ol>
-<p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:
-<code>ssh-keygen -t rsa</code></p>
+<p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
+<p><code>ssh-keygen -t rsa</code></p>
 <p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
-<p>Execute <code>open .</code> in the command line to open the current directory with your desktop file browser and look for the pair of key files.</p>
+<p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
+<p><code>open .</code></p>
 <hr />
 <ol start="5">
 <li>From the IBM Cloud web interface, provision a <strong>Lite plan</strong> of the <strong>IBM Log Analysis</strong> service from the following page: <a href="https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate" target="_blank">https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate</a></li>
@@ -510,8 +511,8 @@
 <ol start="6">
 <li>Install the <strong>OpenSSL binary</strong> on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a></li>
 </ol>
-<p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:
-<code>git clone git://git.openssl.org/openssl.git</code>
+<p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:</p>
+<p><code>git clone git://git.openssl.org/openssl.git</code>
 <code>cd openssl</code>
 <code>git config core.autocrlf false</code>
 <code>git config core.eol lf</code>
