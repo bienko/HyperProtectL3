@@ -468,6 +468,8 @@
 <li>Once the details page for <code>Virtual Server Instances for VPC</code> has loaded, select the <code>Create +</code> blue icon near the top-right corner of the interface. This will redirect the web browser to the configuration screen.</li>
 </ol>
 <hr />
+<p><img alt="" src="../_attachments/module2_figure2.png" /></p>
+<hr />
 <ol start="4">
 <li>The instructions that follow will guide you, top to bottom, across each of the configuration fields available for <code>Virtual Server Instances for VPC</code>.</li>
 </ol>
@@ -557,14 +559,17 @@
 <ol start="7">
 <li>To track the progress of the deployment in further detail, look along the far right side of the provisioning VPC instance for an icon resembling three vertically stacked dots. Click that icon to open up a drop-down menu and select the <code>Open Serial Console</code> button from the options.</li>
 </ol>
+<p><img alt="" src="../_attachments/module2_figure3.png" /></p>
 <hr />
 <ol start="8">
 <li>After the <code>Serial Console</code> has loaded, wait for the console terminal output to read <em>"Configuring logging..."</em> and <em>"Sending logging probe to..."</em>, similar to the messages captured in the following screenshot. Once those messages (or something quite similar — the variables for your particular instance may vary) the provisioning of the VPC instance is complete. Return to the <code>Virtual Server Instances for VPC</code> dashboard on the IBM Cloud page.</li>
 </ol>
+<p><img alt="" src="../_attachments/module2_figure4.png" /></p>
 <hr />
 <ol start="9">
 <li>Click the name of the deployed <code>paynow-demo</code> instance from the table to drill down into the instance details.</li>
 </ol>
+<p><img alt="" src="../_attachments/module2_figure5.png" /></p>
 <hr />
 <ol start="10">
 <li>Once the details panel has finished loading, scroll down to the bottom of the page and locate the <code>Network Interfaces</code> section. A single interface should be listed, corresponding to the default subnet that was selected in the <em>Networking</em> section of the IBM Cloud configuration steps that were performed earlier.</li>
@@ -573,18 +578,23 @@
 <ol start="11">
 <li>On the far-right side of the table entry, click the <code>Edit</code> (pencil) icon to pull open an <code>Edit Network Interface</code> panel.</li>
 </ol>
+<p><img alt="" src="../_attachments/module2_figure6.png" /></p>
 <hr />
 <ol start="12">
 <li>Within the <code>Floating IP Address</code> field, change the value to <em>Reserve a new floating IP</em>. Once satisfied, click <code>Save</code> and the details panel will close.</li>
 </ol>
+<p><img alt="" src="../_attachments/module2_figure7.png" /></p>
 <hr />
 <ol start="13">
 <li>Notice that the IBM Cloud dashboard will refresh and a new <code>Floating IP Address</code> is now assigned to the <em>Network Interfaces</em> section. Now you are ready to examine the PayNow application user interface.</li>
 </ol>
 <hr />
 <ol start="14">
-<li>Copy the <code>Floating IP Address</code> from the <em>Network Interfaces</em> section. Open a new web browser and into the address field enter:</li>
+<li>Copy the <code>Floating IP Address</code> from the <em>Network Interfaces</em> section. </li>
 </ol>
+<p><img alt="" src="../_attachments/module2_figure8.png" /></p>
+<hr />
+<p>Open a new web browser and into the address field enter:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://FLOATING_IP_ADDRESS:8443
 </code></pre></div>
 <div class="admonition tip">
@@ -597,6 +607,7 @@
 </div>
 <hr />
 <p>Your web browser will now open to the hosted <strong>PayNow</strong> application web portal.</p>
+<p><img alt="" src="../_attachments/module2_figure9.png" /></p>
 
 
 
