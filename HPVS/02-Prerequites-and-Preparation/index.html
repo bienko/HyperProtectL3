@@ -17,7 +17,7 @@
     
     
       
-        <title>Digitally shred AWS S3 objects - IBM Cloud Hyper Protect Services Level 3 for Sales and Technical Sales</title>
+        <title>Prerequisites and Preparation - IBM Cloud Hyper Protect Services Level 3 for Sales and Technical Sales</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Digitally shred AWS S3 objects
+              Prerequisites and Preparation
             
           </span>
         </div>
@@ -222,14 +222,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -252,7 +250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-Introduction-to-HPCS-and-UKO/" class="md-nav__link">
+      <a href="../../HPCS/01-Introduction-to-HPCS-and-UKO/" class="md-nav__link">
         Introduction to HPCS and UKO
       </a>
     </li>
@@ -266,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-Provision-and-access/" class="md-nav__link">
+      <a href="../../HPCS/02-Provision-and-access/" class="md-nav__link">
         Provision and access an IBM Technology Zone environment
       </a>
     </li>
@@ -280,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-Create-a-key/" class="md-nav__link">
+      <a href="../../HPCS/03-Create-a-key/" class="md-nav__link">
         Generating a unique key with the AWS Keystore
       </a>
     </li>
@@ -292,21 +290,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../HPCS/04-Digitally-shred/" class="md-nav__link">
         Digitally shred AWS S3 objects
       </a>
-      
     </li>
   
 
@@ -318,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-Clean-up/" class="md-nav__link">
+      <a href="../../HPCS/05-Clean-up/" class="md-nav__link">
         Clean up and conclusion
       </a>
     </li>
@@ -338,12 +326,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -366,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../HPVS/01-Introduction-to-HPVS/" class="md-nav__link">
+      <a href="../01-Introduction-to-HPVS/" class="md-nav__link">
         Introduction to HPVS
       </a>
     </li>
@@ -378,11 +368,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../HPVS/02-Prerequites-and-Preparation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Prerequisites and Preparation
       </a>
+      
     </li>
   
 
@@ -427,54 +427,101 @@
 
 
 <h1 id="_1"></h1>
-<h1 id="digitally-shred-aws-s3-bucket-objects-with-unified-key-orchestrator">Digitally shred AWS S3 bucket objects with Unified Key Orchestrator</h1>
-<p>Owing to the steps taken in the previous section, all objects housed within in the AWS S3 bucket are now encrypted using a uniquely-generated encryption key. Recall that this key— which you defined —was generated using the Unified Key Orchestrator (UKO) utility of IBM Cloud HPCS. By deactivating this key via UKO on IBM Cloud, any data encrypted with the key (including the bucket storage on AWS S3) will become inaccesible.</p>
-<p>In effect, disabling the encryption key will <strong>digitally shred</strong> all data encrypted with said key. This is incredibly useful for rendering inert and inaccessible vast amounts of encrypted data with a single action; far more expedient than seeking out and shredding (through some other process) assets on an individual basis.</p>
+<h1 id="prerequisites-and-preparation">Prerequisites and Preparation</h1>
+<hr />
 <ol>
+<li>If you haven't already, sign up for an IBM Cloud account and IBMid using the following link: <a href="https://cloud.ibm.com/registration" target="_blank">https://cloud.ibm.com/registration</a></li>
+</ol>
+<p>You will be asked to supply a credit card to be associated with the account. Any billing you accrue on your IBM Cloud account will be billed at the next IBM Cloud billing cycle to that credit card.</p>
+<ol start="2">
+<li>On your local desktop or laptop, download and install <strong>Git</strong>. Follow the instruction set appropriate to your operating system.</li>
+</ol>
+<p><strong>macOS</strong></p>
+<ul>
 <li>
-<p>Return to the IBM Cloud dashboard and drill down into the <strong>HPCS UKO</strong> instance as done previously.</p>
+<p>Open the macOS Terminal shell prompt.</p>
 </li>
 <li>
-<p>From the HPCS UKO dashboard, navigate using the left-hand interface into <strong>Vaults</strong> &gt; <strong>Managed Keys</strong>.</p>
+<p>Execute the following instructions to install the Homebrew package manager:
+  <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></p>
 </li>
 <li>
-<p>Locate the unique encryption key that you generated in the previous section. At the far-right side of the key's row (adjacent the <code>Length</code> column) are three vertically stacked dots. Click the icon and then select <strong>Deactivate</strong> from the drop-down options. You will presented with two warning statements — click the checkbox next to each warning, and finally click the <strong>Deactivate Key</strong> button to finalize the request.</p>
+<p>Follow the instructions provided during the Homebrew installation to add Homebrew to your machine's local PATH.</p>
+</li>
+<li>
+<p>Once the installation of Homebrew is complete, execute the following command to install Git:
+  <code>brew install git</code></p>
+</li>
+<li>
+<p>After installation has concluded, verify the Git install using the following statement:
+  <code>git version</code></p>
+</li>
+</ul>
+<p><strong>Windows</strong></p>
+<ul>
+<li>
+<p>Visit the <a href="https://gitforwindows.org/" target="_blank">Git for Windows page</a> and download the latest version to your machine.</p>
+</li>
+<li>
+<p>Once the installer has started, follow the instructions as provided in the Git Setup wizard screen until the installation is complete.</p>
+</li>
+<li>
+<p>Open the windows command prompt (or Git Bash if you selected not to use the standard Git Windows Command Prompt during the Git installation).</p>
+</li>
+<li>
+<p>Execute <code>git version</code> to verify Git was installed.</p>
+</li>
+</ul>
+<hr />
+<ol start="3">
+<li>
+<p>Install the <strong>IBM Cloud Command Line Interface</strong> (CLI) for your local machine to manage resources in the IBM Cloud. Instructions for how to do so across a variety of operating systems are provided online: <a href="https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli" target="_blank">https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli</a></p>
+</li>
+<li>
+<p>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later. Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:
+<code>ssh-keygen -t rsa</code></p>
 </li>
 </ol>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure20.png" /></p>
-<hr />
-<div class="admonition note">
-<p class="admonition-title">DEACTIVATED KEYS</p>
-<p>Once the key has been deactivated, you will no longer see it listed within the <strong>Managed Keys</strong> section of the HPCS UKO dashboard. By default, the dashboard will hide all deactivated keys. However, the deactivated key can be viewed by adjusting the filter parameters. Click the <code>X</code> next to the tags along the top of the table to adjust the filters.</p>
-</div>
-<ol start="4">
-<li>
-<p>Return to the AWS dashboard and drill down into the <strong>Key Management Service</strong> instance as done previously (search for <code>KMS</code> from the top search bar if you have difficulty locating it).</p>
-</li>
-<li>
-<p>From the left-hand side of the interface, drill down into the <strong>Customer-managed keys</strong> section.</p>
-</li>
-<li>
-<p>Note that the key generated by UKO previously now has a <strong>Status</strong> of <code>Pending import</code>. This confirms that the encryption key has been deactivated by UKO.</p>
-</li>
+<p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
+<p>Execute <code>open .</code> in the command line to open the current directory with your desktop file browser and look for the pair of key files.</p>
+<ol start="5">
+<li>From the IBM Cloud web interface, provision a <strong>Lite plan</strong> of the <strong>IBM Log Analysis</strong> service from the following page: <a href="https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate" target="_blank">https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate</a></li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">KEY ID</p>
-<p>Recall from the previous section that the AWS Key Management Service lists customer-managed keys by <code>Key ID</code> hash strings, not the name of the key itself (which you specified when first generating the key).</p>
-</div>
+<p>Note that the "Lite" plan is free to use, but with limited functionality and only a 30 day window to operate before it is automatically de-provisioned. When configuring the service, use the following options:</p>
+<ul>
+<li>
+<p><em>Service Name</em>: Set to a unique name of your preference.</p>
+</li>
+<li>
+<p><em>Resource Group</em>: Leave as default.</p>
+</li>
+<li>
+<p><em>Tags and Access Management</em> tags can be left blank.</p>
+</li>
+</ul>
+<p>Confirm that you have read and agree to the license agreements, then click <em>Create</em> to provision.</p>
 <hr />
-<p><img alt="" src="../_attachments/module1_figure21.png" /></p>
-<hr />
+<ol start="6">
+<li>Install the <strong>OpenSSL binary</strong> on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a></li>
+</ol>
+<p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:
+<code>git clone git://git.openssl.org/openssl.git</code>
+<code>cd openssl</code>
+<code>git config core.autocrlf false</code>
+<code>git config core.eol lf</code>
+<code>git checkout .</code></p>
 <ol start="7">
-<li>From the AWS dashboard, navigate back to the S3 buckets that were set up in the previous section. You will find that the object you uploaded earlier into the bucket is no longer accessible as a result of the key deactivation. Instead, your web browser will return an error similar to the one captured below.</li>
+<li>Install the <strong>Terraform CLI</strong> on your local machine. Detailed instructions and video instructions for doing so are provided online: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli" target="_blank">https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli</a></li>
 </ol>
-<hr />
-<p><img alt="" src="../_attachments/module1_figure22.png" /></p>
-<hr />
+<p>You may either follow the detailed instructions (linked above) or execute the condensed instructions (line by line) below:</p>
+<p><code>brew tap hashicorp/tap</code>
+<code>brew install hashicorp/tap/terraform</code>
+<code>brew update</code>
+<code>brew upgrade hashicorp/tap/terraform</code>
+<code>terraform -version</code></p>
 <h1 id="_2"></h1>
 <h1 id="next-steps">Next steps</h1>
-<p>Before continuing with the lab, there are some loose ends to tie and tidying up to perform.</p>
+<p>In the following section, you will use these tools and technologies to generate a <code>Contract</code> for creation of an HPVS instance with the IBM Hyper Protect Container Runtime (HPCR) image.</p>
 
 
 
@@ -493,7 +540,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../03-Create-a-key/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Generating a unique key with the AWS Keystore" rel="prev">
+        <a href="../01-Introduction-to-HPVS/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction to HPVS" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -502,26 +549,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Generating a unique key with the AWS Keystore
+              Introduction to HPVS
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../05-Clean-up/" class="md-footer__link md-footer__link--next" aria-label="Next: Clean up and conclusion" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Clean up and conclusion
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
