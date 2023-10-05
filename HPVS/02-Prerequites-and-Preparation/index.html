@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#prerequisites-and-preparation" class="md-skip">
           Skip to content
         </a>
       
@@ -428,31 +428,31 @@
                 
 
 
-<h1 id="_1"></h1>
 <h1 id="prerequisites-and-preparation">Prerequisites and Preparation</h1>
+<hr />
 <ol>
 <li>Sign up for an <strong>IBM Cloud account</strong> and IBMid using the following link: <a href="https://cloud.ibm.com/registration" target="_blank">https://cloud.ibm.com/registration</a></li>
 </ol>
 <p>You will be asked to supply a credit card to be associated with the account. Any billing you accrue on your IBM Cloud account will be billed at the next IBM Cloud billing cycle to that credit card.</p>
-<div class="admonition tip">
-<p class="admonition-title">LOGGING IN TO IBM CLOUD CLI</p>
+<details class="tip">
+<summary>LOGGING IN TO IBM CLOUD CLI</summary>
 <p>If your IBM Cloud account requires an API key for login or belongs with a Federated account (most IBM employees), you will need to supply additional instructions for logging in via the IBM Cloud CLI. A quick way to look up the necessary login string (with a one-time passcode) for your account is to first use your web browser to log in to <a href="www.cloud.ibm.com" target="_blank">www.cloud.ibm.com</a>.</p>
 <p>Once logged in, click on your user account icon in the top right-hand corner of the page and select <strong>Log in to CLI and API</strong> from the drop-down menu. A panel will open with a command line string that you can paste into your Terminal / PowerShell console for connecting via the IBM Cloud CLI.</p>
-<p><img alt="" loading="lazy" src="../_attachments/module2_figure13.png" width="400" /></p>
-</div>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure13.png" width="200" /></p>
+</details>
 <hr />
 <ol start="2">
-<li>On your local desktop or laptop, download and install <strong>Git</strong>. Follow the instruction set appropriate to your operating system.</li>
+<li>On your local desktop or laptop, download and install <strong>Git</strong>. Click to expand more details on how to configure Git for your particular operating system.</li>
 </ol>
-<div class="admonition tip">
-<p class="admonition-title">macOS</p>
+<details class="tip">
+<summary>macOS</summary>
 <ul>
 <li>
 <p>Open the macOS Terminal shell prompt.</p>
 </li>
 <li>
 <p>Execute the following instructions to install the Homebrew package manager:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -469,9 +469,9 @@
 </code></pre></div></p>
 </li>
 </ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Windows</p>
+</details>
+<details class="note">
+<summary>Windows</summary>
 <ul>
 <li>
 <p>Visit the <a href="https://gitforwindows.org/" target="_blank">Git for Windows page</a> and download the latest version to your machine.</p>
@@ -488,7 +488,7 @@
 </code></pre></div></p>
 </li>
 </ul>
-</div>
+</details>
 <hr />
 <ol start="3">
 <li>Install the <strong>IBM Cloud Command Line Interface</strong> (CLI) for your local machine to manage resources in the IBM Cloud. </li>
@@ -512,17 +512,12 @@
 <hr />
 <p><img alt="" src="../_attachments/module2_figure10.png" /></p>
 <p>Note that the "Lite" plan is free to use, but with limited functionality and only a 30 day window to operate before it is automatically de-provisioned. When configuring the service, use the following options:</p>
-<ul>
-<li>
-<p><em>Service Name</em>: Set to a unique name of your preference.</p>
-</li>
-<li>
-<p><em>Resource Group</em>: Leave as default.</p>
-</li>
-<li>
-<p><em>Tags and Access Management</em> tags can be left blank.</p>
-</li>
-</ul>
+<div class="highlight"><pre><span></span><code>- *Service Name*: Set to a unique name of your preference.
+
+- *Resource Group*: Leave as default.
+
+- *Tags and Access Management* tags can be left blank.
+</code></pre></div>
 <p>Confirm that you have read and agree to the license agreements, then click <em>Create</em> to provision.</p>
 <hr />
 <p><img alt="" src="../_attachments/module2_figure12.png" /></p>
@@ -533,9 +528,9 @@
 <p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git clone git://git.openssl.org/openssl.git
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cd openssl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span> openssl
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git config core.autocrlf false
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git config core.autocrlf <span class="nb">false</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git config core.eol lf
 </code></pre></div>
@@ -556,7 +551,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>terraform -version
 </code></pre></div></p>
-<h1 id="_2"></h1>
+<h1 id="_1"></h1>
 <h1 id="next-steps">Next steps</h1>
 <p>In the following section, you will use these tools and technologies to generate a <code>Contract</code> for creation of an HPVS instance with the IBM Hyper Protect Container Runtime (HPCR) image.</p>
 
