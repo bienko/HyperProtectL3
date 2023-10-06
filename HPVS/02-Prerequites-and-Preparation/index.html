@@ -473,22 +473,22 @@
 <p>In the bottom-left corner of the dashboard, click the <code>?</code> icon (for <code>Install Instructions</code>).</p>
 </li>
 </ul>
-<p><img alt="" loading="lazy" src="_attachments/module2_figure18.png" width="400" /></p>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure18.png" width="400" /></p>
 <ul>
 <li>A panel to "Add Log Sources" will appear. From the left side of the panel, click to drill down into the <strong>rsyslog</strong> tab.</li>
 </ul>
-<p><img alt="" loading="lazy" src="_attachments/module2_figure19.png" width="400" /></p>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure19.png" width="400" /></p>
 <ul>
 <li>In the top right of the page is a hidden string titled <code>Your Ingestion key is:</code>. Click the clipboard icon to the right of the string and save this value in your records as the <strong>Ingestion ID</strong>.</li>
 </ul>
-<p><img alt="" loading="lazy" src="_attachments/module2_figure20.png" width="400" /></p>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure20.png" width="400" /></p>
 <ul>
 <li>In a large grey box on-screen are the contents for the <code>/etc/rsyslog.d/22-logdna.conf</code> file. Locate the two of lines towards the bottom which read:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Send messages to LogDNA over TCP using the template.
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>*.* @@syslog-a.us-south.logging.cloud.ibm.com:6514;LogDNAFormat
 </code></pre></div>
-<p><img alt="" loading="lazy" src="_attachments/module2_figure21.png" width="400" /></p>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure21.png" width="400" /></p>
 <ul>
 <li>Your particular values will be different than the sample above. The <em>second</em> line is the one of interest to us at this time. Record <strong>YOUR</strong> unique values for the following segment: <code>syslog-a.us-south.logging.cloud.ibm.com</code> including everything between <code>syslog</code> and <code>.com</code>. Save this value in your records as the <strong>Ingestion Host</strong>.</li>
 </ul>
@@ -634,6 +634,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker push us.icr.io/hpvs-sample/paynow-website
 </code></pre></div>
+<hr />
 <p>Wait until all of the components have successfully been pushed to the IBM Cloud repository.</p>
 <p>Once complete, the Terminal console will report back with a <code>RepoDigests</code> value. <strong>COPY</strong> this value to a clipboard and save it for reference later.</p>
 <p><img alt="" loading="lazy" src="../_attachments/module2_figure15.png" width="400" /></p>
@@ -643,7 +644,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker inspect us.icr.io/hpvs-sample/paynow-website | grep -A 1 RepoDigests
 </code></pre></div>
 <hr />
-<h1 id="_1"></h1>
 <h1 id="next-steps">Next Steps</h1>
 <p>At this stage, the PayNow application's container image has been prepared and is now available for use in the IBM Cloud. In the following section, you will use these tools and technologies to generate a <code>Contract</code> for creation of an HPVS instance with the IBM Hyper Protect Container Runtime (HPCR) image.</p>
 
