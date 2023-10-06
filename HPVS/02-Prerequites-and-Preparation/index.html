@@ -440,39 +440,6 @@
 <p>Once logged in, click on your user account icon in the top right-hand corner of the page and select <strong>Log in to CLI and API</strong> from the drop-down menu. A panel will open with a command line string that you can paste into your Terminal / PowerShell console for connecting via the IBM Cloud CLI.</p>
 <hr />
 <ol start="2">
-<li>Install the <strong>IBM Cloud Command Line Interface</strong> (CLI) for your local machine to manage resources in the IBM Cloud. </li>
-</ol>
-<p>Instructions for how to do so across a variety of operating systems are provided online: <a href="https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli" target="_blank">https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli</a></p>
-<hr />
-<ol start="3">
-<li>Next, install the IBM Cloud <code>Code Engine</code> plug-in:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ibmcloud plugin install code-engine
-</code></pre></div>
-<details class="warning">
-<summary>DEPRECATION OF IBM CLOUD FOUNDRY (<code>CF</code>)</summary>
-<p>IBM Cloud Foundry or <code>CF</code> has been <a href="https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation#dep_details" target="_blank">deprecated as of June 1, 2023</a>. If you encounter any IBM Cloud documentation requiring the use of <code>CF</code>, substitute commands using the <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started" target="_blank">Code Engine</a> API documentation in its place.</p>
-</details>
-<hr />
-<ol start="4">
-<li>Use the <code>ibmcloud plugin show code-engine</code> command to verify that the plug-in is installed:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ibmcloud plugin show code-engine
-</code></pre></div>
-<hr />
-<ol start="5">
-<li>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</li>
-</ol>
-<p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh-keygen -t rsa
-</code></pre></div>
-<p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
-<p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>open .
-</code></pre></div>
-<p>Look for a <code>key.pub</code> file in the directory — this is your public SSH key.</p>
-<hr />
-<ol start="6">
 <li>From the IBM Cloud web interface, provision a <strong>Lite plan</strong> of the <strong>IBM Log Analysis</strong> service from the following page:</li>
 </ol>
 <p><a href="https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate" target="_blank">https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate</a></p>
@@ -492,7 +459,27 @@
 <p>Confirm that you have read and agree to the license agreements, then click <strong>Create</strong> to provision.</p>
 <p><img alt="" loading="lazy" src="../_attachments/module2_figure12.png" width="400" /></p>
 <hr />
-<ol start="7">
+<ol start="3">
+<li>Install the <a href="https://brew.sh" target="_blank">Homebrew package manager</a> on your local machine. Alternatively, Windows or Linux clients can use other package managers (like <code>pip</code>) if you wish; however, be aware that the install commands and syntax may vary between package managers.</li>
+</ol>
+<p>If you do not have the Homebrew package manager installed in a macOS environment, execute the following instruction inside a Terminal console:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Follow the prompts until the installation has concluded, then continue with the lab guide instructions.</p>
+<hr />
+<ol start="4">
+<li>Install the <a href="https://www.docker.com/get-started/" target="_blank">Docker</a> container service by downloading the Docker Desktop version appropriate to your machine's operating system.</li>
+</ol>
+<p>Alternatively, use the <code>brew</code> package manager to install Docker on your local machine. This will be required for connecting to the IBM Cloud Container Registry.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>brew install docker
+</code></pre></div>
+<p>Follow the prompts until the installation has concluded, then continue with the lab guide instructions.</p>
+<details class="warning">
+<summary>DOCKER DESKTOP MUST BE RUNNING</summary>
+<p>After installation, ensure that the Docker Desktop service is running on your machine (check the taskbar or launch the application manually). Otherwise, you will encounter errors in <strong>Step 7</strong> when trying to compile the <code>PayNow</code> container image.</p>
+</details>
+<hr />
+<ol start="5">
 <li>On your local desktop or laptop, download and install <strong>Git</strong>. Click to expand more details on how to configure Git for your particular operating system.</li>
 </ol>
 <details class="tip">
@@ -503,7 +490,7 @@
 </li>
 <li>
 <p>Execute the following instructions to install the Homebrew package manager:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -511,12 +498,12 @@
 </li>
 <li>
 <p>Once the installation of Homebrew is complete, execute the following command to install Git:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>brew install git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew install git
 </code></pre></div></p>
 </li>
 <li>
 <p>After installation has concluded, verify the Git install using the following statement:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git version
 </code></pre></div></p>
 </li>
 </ul>
@@ -535,44 +522,128 @@
 </li>
 <li>
 <p>Execute the following to verify Git was installed:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git version
 </code></pre></div></p>
 </li>
 </ul>
 </details>
 <hr />
+<ol start="6">
+<li>Use <code>Git</code> to clone the <a href="https://github.com/ibm-hyper-protect/paynow-website" target="_blank">HPVS "PayNow" demo</a> code repository from GitHub.</li>
+</ol>
+<p>Enter the following command into Terminal to clone the repository via the command line:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>gh repo clone ibm-hyper-protect/paynow-website
+</code></pre></div></p>
+<p>Alternatively, if you visit the <a href="https://github.com/ibm-hyper-protect/paynow-website" target="_blank">GitHub</a> repository, click the green <strong>Code</strong> button and then <strong>Download ZIP</strong> from the drop-down menu. This will download the GitHub repository code to a directory of your choosing on your local machine.</p>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure14.png" width="400" /></p>
+<p>The Pay Now Website is a simple application, that presents an interface to make payments. The application shows how sensitive payment related information (such as credit card data) is used. It is recommended to run this application in a confidential computing environment where PII data in use is protected from malicious actors.</p>
+<hr />
+<ol start="7">
+<li>With Terminal, navigate to the <code>paynow-website</code> that you just cloned/saved locally on your machine in the previous step. For example:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cd ~/Desktop/paynow-website
+</code></pre></div>
+<p>Once inside the directory, execute the following command to build the <code>PayNow</code> container image for the <code>linux/s390x</code> platform and tag the container image:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker buildx build --platform linux/s390x -t us.icr.io/hpvs-sample/paynow-website .
+</code></pre></div>
+<p>The container image build should take approximately 1-2 minutes to complete.</p>
+<hr />
 <ol start="8">
+<li>Install the <strong>IBM Cloud Command Line Interface</strong> (CLI) for your local machine to manage resources in the IBM Cloud. </li>
+</ol>
+<p>Instructions for how to do so across a variety of operating systems are provided online: <a href="https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli" target="_blank">https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli</a></p>
+<hr />
+<ol start="9">
+<li>Next, install the IBM Cloud <code>Code Engine</code> plug-in:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ibmcloud plugin install code-engine
+</code></pre></div>
+<details class="warning">
+<summary>DEPRECATION OF IBM CLOUD FOUNDRY (<code>CF</code>)</summary>
+<p>IBM Cloud Foundry or <code>CF</code> has been <a href="https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation#dep_details" target="_blank">deprecated as of June 1, 2023</a>. If you encounter any IBM Cloud documentation requiring the use of <code>CF</code>, substitute commands using the <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started" target="_blank">Code Engine</a> API documentation in its place.</p>
+</details>
+<hr />
+<ol start="10">
+<li>Use the <code>ibmcloud plugin show code-engine</code> command to verify that the plug-in is installed:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ibmcloud plugin show code-engine
+</code></pre></div>
+<hr />
+<ol start="11">
+<li>Log in to the <strong>IBM Cloud Container Registry</strong> with the following command:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ibmcloud cr login --client docker
+</code></pre></div>
+<details class="warning">
+<summary>CONNECTION ERROR</summary>
+<p>If you are unable to connect to the IBM Cloud Container Registry and receive an error similar to the following...
+<code>Failed to 'docker login' to 'us.icr.io' with error: Error saving credentials: error storing credentials...</code></p>
+<p>You will need to remove an existing Docker configuration file from your local machine first. Do so with the following command:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rm ~/.docker/config.json
+</code></pre></div></p>
+<p>Afterwards, try to connect to the IBM Cloud Container Registry again using the same command as before.</p>
+</details>
+<hr />
+<ol start="12">
+<li>Create a namespace and push the container image by running the following commands. You must execute these in the <strong>SAME</strong> directory that you saved your <code>paynow-website</code> clone in Step 6 and built your Docker container image in Step 7.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ibmcloud cr namespace-add hpvs-sample
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker push us.icr.io/hpvs-sample/paynow-website
+</code></pre></div>
+<p>Wait until all of the components have successfully been pushed to the IBM Cloud repository.</p>
+<p>Once complete, the Terminal console will report back with a <code>RepoDigests</code> value. <strong>COPY</strong> this value to a clipboard and save it for reference later.</p>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure15.png" width="400" /></p>
+<p>If you need to retrieve the digest value at a later time, you can do so by executing the following command:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker inspect us.icr.io/hpvs-sample/paynow-website | grep -A 1 RepoDigests
+</code></pre></div></p>
+<hr />
+<h1 id="_1"></h1>
+<h1 id="next-steps">Next Steps</h1>
+<p>At this stage, the PayNow application's container image has been prepared and is now available for use in the IBM Cloud. In the following module, you will create the contract for the PayNow application using Terraform.</p>
+<ol start="7">
 <li>Install the <strong>OpenSSL binary</strong> on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a></li>
 </ol>
 <p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git clone git://git.openssl.org/openssl.git
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git clone git://git.openssl.org/openssl.git
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span> openssl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span> openssl
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git config core.autocrlf <span class="nb">false</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git config core.autocrlf <span class="nb">false</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git config core.eol lf
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git config core.eol lf
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git checkout .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git checkout .
 </code></pre></div></p>
+<ol start="5">
+<li>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</li>
+</ol>
+<p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ssh-keygen -t rsa
+</code></pre></div>
+<p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
+<p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>open .
+</code></pre></div>
+<p>Look for a <code>key.pub</code> file in the directory — this is your public SSH key.</p>
 <hr />
 <ol start="9">
 <li>Install the <strong>Terraform CLI</strong> on your local machine. Detailed instructions and video instructions for doing so are provided online: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli" target="_blank">https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli</a></li>
 </ol>
 <p>You may either follow the detailed instructions (above) or execute the condensed instructions line-by-line (below):</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>brew tap hashicorp/tap
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>brew tap hashicorp/tap
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>brew install hashicorp/tap/terraform
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>brew install hashicorp/tap/terraform
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>brew update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>brew update
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>brew upgrade hashicorp/tap/terraform
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>brew upgrade hashicorp/tap/terraform
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>terraform -version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>terraform -version
 </code></pre></div></p>
 <hr />
-<h1 id="_1"></h1>
-<h1 id="next-steps">Next steps</h1>
+<h1 id="_2"></h1>
+<h1 id="next-steps_1">Next steps</h1>
 <p>In the following section, you will use these tools and technologies to generate a <code>Contract</code> for creation of an HPVS instance with the IBM Hyper Protect Container Runtime (HPCR) image.</p>
 
 
