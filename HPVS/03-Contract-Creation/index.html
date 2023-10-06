@@ -472,7 +472,7 @@
 <ol start="4">
 <li>Navigate to the following directory:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span> linuxone-vsi-automation-samples<span class="se">\t</span>erraform-hpvs<span class="se">\c</span>reate-contract-dynamic-registry
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span> linuxone-vsi-automation-samples/terraform-hpvs/create-contract-dynamic-registry/
 </code></pre></div>
 <hr />
 <ol start="5">
@@ -493,60 +493,126 @@
 <a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span><span class="w"></span>
 <a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8443:8443&quot;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>Save and exit the file when ready.</p>
+<p>Be careful to match the indentation and whitespacing exactly as given below, as YAML files use indentation to parse instructions. When satisfied, save the changes and exit the file.</p>
 <hr />
 <ol start="6">
-<li>Return to the <code>linuxone-vsi-automation-samples\terraform-hpvs\create-contract-dynamic-registry</code> directory from Step 4.</li>
+<li>Return to the <code>linuxone-vsi-automation-samples/terraform-hpvs/create-contract-dynamic-registry/</code> directory from Step 4.</li>
 </ol>
 <p>Locate the <code>my-settings.auto.tfvars-template</code> file within this directory. <strong>Duplicate</strong> this file and then <strong>rename</strong> it to <code>my-settings.auto.tfvars</code> instead.</p>
-<p>Edit the <code>my-settings.auto.tfvars</code> file </p>
-<ol start="5">
-<li>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</li>
-</ol>
-<p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ssh-keygen -t rsa
-</code></pre></div>
-<p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
-<p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>open .
-</code></pre></div>
-<p>Look for a <code>key.pub</code> file in the directory — this is your public SSH key.</p>
+<p>Edit the <code>my-settings.auto.tfvars</code> file and replicate (using <strong>YOUR</strong> IBM Cloud account details) the following example as closely as possible:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>registry=&quot;&lt;your container registry&gt;&quot;
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>pull_username=&quot;iamapikey&quot;
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>pull_password=&quot;&lt;your API key&gt;&quot;
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>logdna_ingestion_key=&quot;&lt;your ingestion key&gt;&quot;
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>logdna_ingestion_hostname=&quot;&lt;your ingestion host&gt;&quot;
+</code></pre></div></td></tr></table></div>
+<p>Adjust the following values:</p>
+<ul>
+<li>
+<p>Line 1: Replace <code>&lt;your container registry&gt;</code> with the first component of the container registry digest you recorded in Step 13 of the Prerequisites module. Likely this is a value such as <code>us.icr.io</code> Preserve the double-quotation marks.</p>
+</li>
+<li>
+<p>Line 3: Replace <code>&lt;your API key&gt;</code> with the contents of the <code>key.pub</code> SSH key that you created and stored locally in Step 8 of the Prerequisites module. Preserve the double-quotation marks.</p>
+</li>
+<li>
+<p>Line 4: Replace <code>&lt;your ingestion key&gt;</code> with the <strong>Ingestion Key</strong> recorded in Step 2 of the Prerequisites module. This is likely a value similar to <code>a17b8b912bcddda9d84d544d82a74c50</code>. Preserve the double-quotation marks.</p>
+</li>
+<li>
+<p>Line 5: Replace <code>&lt;your ingestion host&gt;</code> with the <strong>Ingestion Host</strong> recorded in Step 2 of the Prerequisites module. This is likely a value similar to <code>syslog-a.us-south.logging.cloud.ibm.com</code>. Preserve the double-quotation marks.</p>
+</li>
+</ul>
+<p>When satisfied, save the changes and exit the file.</p>
 <hr />
-<ol>
-<li>On your local machine, in a directory of your choosing, execute the following command to clone an IBM Hyper Protect git repository:</li>
+<ol start="7">
+<li>To initialize Terraform, execute the following command:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git clone https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples.git
-</code></pre></div>
-<hr />
-<ol start="2">
-<li>Navigate to the newly created (cloned) repository:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cd linuxone-vsi-automation-samples/terraform-hpvs/create-contract
-</code></pre></div>
-<hr />
-<ol start="3">
-<li>Navigate deeper into the "compose" subdirectory and edit the contents of the <code>docker-compose.yml</code> YAML file. It is recommended that you use the <code>VI</code> editor, but you can use whichever editor you prefer.</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cd compose
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>vi docker-compose.yml
-</code></pre></div></p>
-<hr />
-<ol start="4">
-<li>Copy and replace the contents of the <code>docker-compose.yml</code> file with the lines of code below. Be careful to match the indentation and whitespacing exactly as given below, as YAML files use indentation to parse instructions. When satisfied, save the changes and exit the file.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>version: &quot;3&quot;
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>services:
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  paynow:
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    image: ghcr.io/ibm-hyper-protect/paynow-website@sha256:85765a17f14914f4d3223d75a84a3680de8e1b6a48d56f3363d68b02c93246f4
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    ports:
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>      - &quot;8080:8080&quot;
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>      - &quot;8443:8443&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>terraform init
 </code></pre></div>
 <hr />
-<ol start="5">
-<li>IBM Cloud resources ("the provider" in Terraform) need to be configured with the proper credentials before they can be used in conjunction with Terraform. Additional information can be found online: <a href="https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#authentication" target="_blank">https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#authentication</a></li>
+<ol start="8">
+<li>Generate the Terraform <code>Contract</code> using the following command:</li>
 </ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>terraform apply
+</code></pre></div>
+<p>You will be prompted mid-way through the process whether you want Terraform to perform the actions prescribed, to which you should respond with <code>yes</code> and hit the <code>Return</code> key.</p>
+<p><img alt="" loading="lazy" src="_attachments/module2_figure22.png" width="400" /></p>
+<p>Once completed, you should see the following screen:</p>
+<p><img alt="" loading="lazy" src="_attachments/module2_figure23.png" width="400" /></p>
+<hr />
+<ol start="9">
+<li>Display the <code>Contract</code> that is created with the Terraform script by running the following command:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cat build/contract.yml
+</code></pre></div>
+<p><strong>RECORD</strong> the entirety of the contract to a notepad. You will need to reference this information in the following module.</p>
+<hr />
+<h1 id="_1"></h1>
+<h1 id="next-steps">Next Steps</h1>
+<p>In the following section, you will configure and deploy a Hyper Protect Virtual Servers for VPC instance on IBM Cloud using the freshly generated <code>Contract</code>.</p>
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. On your local machine, in a directory of your choosing, execute the following command to clone an IBM Hyper Protect git repository:
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git clone https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples.git
+</code></pre></div>
+
+---
+
+2. Navigate to the newly created (cloned) repository:
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>cd linuxone-vsi-automation-samples/terraform-hpvs/create-contract
+</code></pre></div>
+
+---
+
+3. Navigate deeper into the "compose" subdirectory and edit the contents of the `docker-compose.yml` YAML file. It is recommended that you use the `VI` editor, but you can use whichever editor you prefer.
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>cd compose
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>vi docker-compose.yml
+</code></pre></div>
+
+---
+
+4. Copy and replace the contents of the `docker-compose.yml` file with the lines of code below. Be careful to match the indentation and whitespacing exactly as given below, as YAML files use indentation to parse instructions. When satisfied, save the changes and exit the file.
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>version: &quot;3&quot;
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>services:
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  paynow:
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    image: ghcr.io/ibm-hyper-protect/paynow-website@sha256:85765a17f14914f4d3223d75a84a3680de8e1b6a48d56f3363d68b02c93246f4
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    ports:
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>      - &quot;8080:8080&quot;
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>      - &quot;8443:8443&quot;
+</code></pre></div>
+
+---
+
+5. IBM Cloud resources ("the provider" in Terraform) need to be configured with the proper credentials before they can be used in conjunction with Terraform. Additional information can be found online: <a href="https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#authentication" target="_blank">https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#authentication</a> -->
 
 
 

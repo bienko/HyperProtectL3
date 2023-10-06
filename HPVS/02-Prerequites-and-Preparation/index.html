@@ -459,12 +459,45 @@
 </ul>
 <p>Confirm that you have read and agree to the license agreements, then click <strong>Create</strong> to provision.</p>
 <p><img alt="" loading="lazy" src="../_attachments/module2_figure12.png" width="400" /></p>
+<p>You will need to record details about the <strong>Ingestion Host</strong> and the <strong>Ingestion ID</strong> for reference at a later step.</p>
+<p>They will be something similar to:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Ingestion Host: syslog-a.eu-gb.logging.cloud.ibm.com
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Ingestion ID: 9a035a6ee2f2ae77c566a543e0957ed8
+</code></pre></div></p>
+<p>Locate the Host and ID specific to your environment by performing the following:</p>
+<ul>
+<li>
+<p>Click <strong>Open Dashboard</strong> from the Log Analysis service page on IBM Cloud</p>
+</li>
+<li>
+<p>In the bottom-left corner of the dashboard, click the <code>?</code> icon (for <code>Install Instructions</code>).</p>
+</li>
+</ul>
+<p><img alt="" loading="lazy" src="_attachments/module2_figure18.png" width="400" /></p>
+<ul>
+<li>A panel to "Add Log Sources" will appear. From the left side of the panel, click to drill down into the <strong>rsyslog</strong> tab.</li>
+</ul>
+<p><img alt="" loading="lazy" src="_attachments/module2_figure19.png" width="400" /></p>
+<ul>
+<li>In the top right of the page is a hidden string titled <code>Your Ingestion key is:</code>. Click the clipboard icon to the right of the string and save this value in your records as the <strong>Ingestion ID</strong>.</li>
+</ul>
+<p><img alt="" loading="lazy" src="_attachments/module2_figure20.png" width="400" /></p>
+<ul>
+<li>In a large grey box on-screen are the contents for the <code>/etc/rsyslog.d/22-logdna.conf</code> file. Locate the two of lines towards the bottom which read:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Send messages to LogDNA over TCP using the template.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>*.* @@syslog-a.us-south.logging.cloud.ibm.com:6514;LogDNAFormat
+</code></pre></div>
+<p><img alt="" loading="lazy" src="_attachments/module2_figure21.png" width="400" /></p>
+<ul>
+<li>Your particular values will be different than the sample above. The <em>second</em> line is the one of interest to us at this time. Record <strong>YOUR</strong> unique values for the following segment: <code>syslog-a.us-south.logging.cloud.ibm.com</code> including everything between <code>syslog</code> and <code>.com</code>. Save this value in your records as the <strong>Ingestion Host</strong>.</li>
+</ul>
 <hr />
 <ol start="3">
 <li>Install the <a href="https://brew.sh" target="_blank">Homebrew package manager</a> on your local machine. Alternatively, Windows or Linux clients can use other package managers (like <code>pip</code>) if you wish; however, be aware that the install commands and syntax may vary between package managers.</li>
 </ol>
 <p>If you do not have the Homebrew package manager installed in a macOS environment, execute the following instruction inside a Terminal console:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>Follow the prompts until the installation has concluded, then continue with the lab guide instructions.</p>
 <hr />
@@ -472,7 +505,7 @@
 <li>Install the <a href="https://www.docker.com/get-started/" target="_blank">Docker</a> container service by downloading the Docker Desktop version appropriate to your machine's operating system.</li>
 </ol>
 <p>Alternatively, use the <code>brew</code> package manager to install Docker on your local machine. This will be required for connecting to the IBM Cloud Container Registry.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>brew install docker
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew install docker
 </code></pre></div>
 <p>Follow the prompts until the installation has concluded, then continue with the lab guide instructions.</p>
 <details class="warning">
@@ -491,7 +524,7 @@
 </li>
 <li>
 <p>Execute the following instructions to install the Homebrew package manager:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -499,12 +532,12 @@
 </li>
 <li>
 <p>Once the installation of Homebrew is complete, execute the following command to install Git:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>brew install git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>brew install git
 </code></pre></div></p>
 </li>
 <li>
 <p>After installation has concluded, verify the Git install using the following statement:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git version
 </code></pre></div></p>
 </li>
 </ul>
@@ -523,7 +556,7 @@
 </li>
 <li>
 <p>Execute the following to verify Git was installed:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git version
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git version
 </code></pre></div></p>
 </li>
 </ul>
@@ -533,7 +566,7 @@
 <li>Use <code>Git</code> to clone the <a href="https://github.com/ibm-hyper-protect/paynow-website" target="_blank">HPVS "PayNow" demo</a> code repository from GitHub.</li>
 </ol>
 <p>Enter the following command into Terminal to clone the repository via the command line:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>gh repo clone ibm-hyper-protect/paynow-website
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gh repo clone ibm-hyper-protect/paynow-website
 </code></pre></div></p>
 <p>Alternatively, if you visit the <a href="https://github.com/ibm-hyper-protect/paynow-website" target="_blank">GitHub</a> repository, click the green <strong>Code</strong> button and then <strong>Download ZIP</strong> from the drop-down menu. This will download the GitHub repository code to a directory of your choosing on your local machine.</p>
 <p><img alt="" loading="lazy" src="../_attachments/module2_figure14.png" width="400" /></p>
@@ -542,10 +575,10 @@
 <ol start="7">
 <li>With Terminal, navigate to the <code>paynow-website</code> that you just cloned/saved locally on your machine in the previous step. For example:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cd ~/Desktop/paynow-website
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cd ~/Desktop/paynow-website
 </code></pre></div>
 <p>Once inside the directory, execute the following command to build the <code>PayNow</code> container image for the <code>linux/s390x</code> platform and tag the container image:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker buildx build --platform linux/s390x -t us.icr.io/hpvs-sample/paynow-website .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker buildx build --platform linux/s390x -t us.icr.io/hpvs-sample/paynow-website .
 </code></pre></div>
 <p>The container image build should take approximately 1-2 minutes to complete.</p>
 <hr />
@@ -553,11 +586,20 @@
 <li>Install the <strong>IBM Cloud Command Line Interface</strong> (CLI) for your local machine to manage resources in the IBM Cloud. </li>
 </ol>
 <p>Instructions for how to do so across a variety of operating systems are provided online: <a href="https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli" target="_blank">https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli</a></p>
+<p>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</p>
+<p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ssh-keygen -t rsa
+</code></pre></div>
+<p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
+<p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>open .
+</code></pre></div>
+<p><strong>SAVE</strong> this <code>.pub</code> file where you can easily retrieve it, as it will be necessary at a later stage.</p>
 <hr />
 <ol start="9">
 <li>Next, install the <strong>IBM Cloud</strong> <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started" target="_blank"><strong>Code Engine</strong></a> plug-in:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ibmcloud plugin install code-engine
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ibmcloud plugin install code-engine
 </code></pre></div>
 <details class="warning">
 <summary>DEPRECATION OF IBM CLOUD FOUNDRY (<code>CF</code>)</summary>
@@ -567,20 +609,20 @@
 <ol start="10">
 <li>Execute the following command to verify that the plug-in is installed:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ibmcloud plugin show code-engine
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ibmcloud plugin show code-engine
 </code></pre></div>
 <hr />
 <ol start="11">
 <li>Log in to the <strong>IBM Cloud Container Registry</strong> with the following command:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ibmcloud cr login --client docker
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ibmcloud cr login --client docker
 </code></pre></div>
 <details class="warning">
 <summary>CONNECTION ERROR</summary>
 <p>If you are unable to connect to the IBM Cloud Container Registry and receive an error similar to the following...
 <code>Failed to 'docker login' to 'us.icr.io' with error: Error saving credentials: error storing credentials...</code></p>
 <p>You will need to remove an existing Docker configuration file from your local machine first. Do so with the following command:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rm ~/.docker/config.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>rm ~/.docker/config.json
 </code></pre></div></p>
 <p>Afterwards, try to connect to the IBM Cloud Container Registry again using the same command as before.</p>
 </details>
@@ -588,9 +630,9 @@
 <ol start="12">
 <li>Create a namespace and push the container image by running the following commands. You must execute these in the <strong>SAME</strong> directory that you saved your <code>paynow-website</code> clone in Step 6 and built your Docker container image in Step 7.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ibmcloud cr namespace-add hpvs-sample
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ibmcloud cr namespace-add hpvs-sample
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker push us.icr.io/hpvs-sample/paynow-website
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker push us.icr.io/hpvs-sample/paynow-website
 </code></pre></div>
 <p>Wait until all of the components have successfully been pushed to the IBM Cloud repository.</p>
 <p>Once complete, the Terminal console will report back with a <code>RepoDigests</code> value. <strong>COPY</strong> this value to a clipboard and save it for reference later.</p>
@@ -598,7 +640,7 @@
 <ol start="13">
 <li>If you need to retrieve the digest value at a later time, you can do so by executing the following command. Do so now and also record the <strong>FULL</strong> print-out to a notepad. The information on your container registry will be useful at a later stage.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker inspect us.icr.io/hpvs-sample/paynow-website | grep -A 1 RepoDigests
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker inspect us.icr.io/hpvs-sample/paynow-website | grep -A 1 RepoDigests
 </code></pre></div>
 <hr />
 <h1 id="_1"></h1>
