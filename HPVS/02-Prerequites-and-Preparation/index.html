@@ -594,18 +594,32 @@
 <p>Wait until all of the components have successfully been pushed to the IBM Cloud repository.</p>
 <p>Once complete, the Terminal console will report back with a <code>RepoDigests</code> value. <strong>COPY</strong> this value to a clipboard and save it for reference later.</p>
 <p><img alt="" loading="lazy" src="../_attachments/module2_figure15.png" width="400" /></p>
-<p>If you need to retrieve the digest value at a later time, you can do so by executing the following command:
+<p>If you need to retrieve the digest value at a later time, you can do so by executing the following:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker inspect us.icr.io/hpvs-sample/paynow-website | grep -A 1 RepoDigests
 </code></pre></div></p>
 <hr />
 <h1 id="_1"></h1>
 <h1 id="next-steps">Next Steps</h1>
 <p>At this stage, the PayNow application's container image has been prepared and is now available for use in the IBM Cloud. In the following module, you will create the contract for the PayNow application using Terraform.</p>
-<ol start="7">
-<li>Install the <strong>OpenSSL binary</strong> on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a></li>
-</ol>
-<p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git clone git://git.openssl.org/openssl.git
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+7. Install the **OpenSSL binary** on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a>
+
+To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git clone git://git.openssl.org/openssl.git
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span> openssl
 </code></pre></div>
@@ -614,24 +628,61 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>git config core.eol lf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git checkout .
-</code></pre></div></p>
-<ol start="5">
-<li>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</li>
-</ol>
-<p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. Create a **public SSH key** which will be used for connecting to the virtual server instance that we will deploy later.
+
+Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ssh-keygen -t rsa
 </code></pre></div>
-<p>The command will generate two files— <code>id_rsa</code> and <code>id_rsa.pub</code> —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as <code>/Users/.ssh/id_rsa</code>) or within the same directory that you executed the <code>ssh-key -t rsa</code> instruction from.</p>
-<p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
+
+The command will generate two files— `id_rsa` and `id_rsa.pub` —which will be placed either under an .ssh directory (the exact directory address will be displayed to the command line, such as `/Users/.ssh/id_rsa`) or within the same directory that you executed the `ssh-key -t rsa` instruction from.
+
+Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>open .
 </code></pre></div>
-<p>Look for a <code>key.pub</code> file in the directory — this is your public SSH key.</p>
-<hr />
-<ol start="9">
-<li>Install the <strong>Terraform CLI</strong> on your local machine. Detailed instructions and video instructions for doing so are provided online: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli" target="_blank">https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli</a></li>
-</ol>
-<p>You may either follow the detailed instructions (above) or execute the condensed instructions line-by-line (below):</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>brew tap hashicorp/tap
+
+Look for a `key.pub` file in the directory — this is your public SSH key.
+
+
+---
+
+9. Install the **Terraform CLI** on your local machine. Detailed instructions and video instructions for doing so are provided online: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli" target="_blank">https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli</a>
+
+You may either follow the detailed instructions (above) or execute the condensed instructions line-by-line (below):
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>brew tap hashicorp/tap
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>brew install hashicorp/tap/terraform
 </code></pre></div>
@@ -640,11 +691,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>brew upgrade hashicorp/tap/terraform
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>terraform -version
-</code></pre></div></p>
-<hr />
-<h1 id="_2"></h1>
-<h1 id="next-steps_1">Next steps</h1>
-<p>In the following section, you will use these tools and technologies to generate a <code>Contract</code> for creation of an HPVS instance with the IBM Hyper Protect Container Runtime (HPCR) image.</p>
+</code></pre></div>
+
+---
+
+#
+# Next steps
+
+In the following section, you will use these tools and technologies to generate a `Contract` for creation of an HPVS instance with the IBM Hyper Protect Container Runtime (HPCR) image. -->
 
 
 
