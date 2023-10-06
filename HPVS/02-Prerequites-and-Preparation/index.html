@@ -432,45 +432,37 @@
 <p>The following module will guide you through the necessary setup and configuration required before deploying the HPVS lab environment.</p>
 <hr />
 <ol>
-<li>
-<p>Sign up for an <strong>IBM Cloud account</strong> and IBMid using the following link: <a href="https://cloud.ibm.com/registration" target="_blank">https://cloud.ibm.com/registration</a></p>
+<li>Sign up for an <strong>IBM Cloud account</strong> and IBMid using the following link: <a href="https://cloud.ibm.com/registration" target="_blank">https://cloud.ibm.com/registration</a></li>
+</ol>
 <p>You will be asked to supply a credit card to be associated with the account. Any billing you accrue on your IBM Cloud account will be billed at the next IBM Cloud billing cycle to that credit card.</p>
 <p>If your IBM Cloud account requires an API key for login or belongs with a Federated account (most IBM employees), you will need to supply additional instructions for logging in via the IBM Cloud CLI. A quick way to look up the necessary login string (with a one-time passcode) for your account is to first use your web browser to log in to <a href="https://cloud.ibm.com" target="_blank">www.cloud.ibm.com</a>.</p>
 <p><img alt="" loading="lazy" src="../_attachments/module2_figure13.png" width="200" /></p>
 <p>Once logged in, click on your user account icon in the top right-hand corner of the page and select <strong>Log in to CLI and API</strong> from the drop-down menu. A panel will open with a command line string that you can paste into your Terminal / PowerShell console for connecting via the IBM Cloud CLI.</p>
-</li>
-</ol>
 <hr />
 <ol start="2">
-<li>
-<p>Install the <strong>IBM Cloud Command Line Interface</strong> (CLI) for your local machine to manage resources in the IBM Cloud. </p>
-<p>Instructions for how to do so across a variety of operating systems are provided online: <a href="https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli" target="_blank">https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli</a></p>
-</li>
+<li>Install the <strong>IBM Cloud Command Line Interface</strong> (CLI) for your local machine to manage resources in the IBM Cloud. </li>
 </ol>
+<p>Instructions for how to do so across a variety of operating systems are provided online: <a href="https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli" target="_blank">https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli</a></p>
 <hr />
 <ol start="3">
-<li>
-<p>Next, install the IBM Cloud <code>Code Engine</code> plug-in:</p>
+<li>Next, install the IBM Cloud <code>Code Engine</code> plug-in:</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ibmcloud plugin install code-engine
 </code></pre></div>
-</li>
-</ol>
 <details class="warning">
 <summary>DEPRECATION OF IBM CLOUD FOUNDRY (<code>CF</code>)</summary>
 <p>IBM Cloud Foundry or <code>CF</code> has been <a href="https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation#dep_details" target="_blank">deprecated as of June 1, 2023</a>. If you encounter any IBM Cloud documentation requiring the use of <code>CF</code>, substitute commands using the <a href="https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started" target="_blank">Code Engine</a> API documentation in its place.</p>
 </details>
 <hr />
 <ol start="4">
-<li>
-<p>Use the <code>ibmcloud plugin show code-engine</code> command to verify that the plug-in is installed:</p>
+<li>Use the <code>ibmcloud plugin show code-engine</code> command to verify that the plug-in is installed:</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ibmcloud plugin show code-engine
 </code></pre></div>
-</li>
-</ol>
 <hr />
 <ol start="5">
-<li>
-<p>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</p>
+<li>Create a <strong>public SSH key</strong> which will be used for connecting to the virtual server instance that we will deploy later.</li>
+</ol>
 <p>Within your IBM Cloud CLI or local Terminal command prompt, execute the following command to generate a public SSH key:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh-keygen -t rsa
 </code></pre></div>
@@ -478,18 +470,13 @@
 <p>Execute the following instruction in the command line to open the current directory with your desktop file browser and look for the pair of key files:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>open .
 </code></pre></div>
-</li>
-</ol>
 <hr />
 <ol start="6">
-<li>
-<p>From the IBM Cloud web interface, provision a <strong>Lite plan</strong> of the <strong>IBM Log Analysis</strong> service from the following page:</p>
-<p><a href="https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate" target="_blank">https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate</a></p>
-</li>
+<li>From the IBM Cloud web interface, provision a <strong>Lite plan</strong> of the <strong>IBM Log Analysis</strong> service from the following page:</li>
 </ol>
+<p><a href="https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate" target="_blank">https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate</a></p>
 <p><img alt="" loading="lazy" src="../_attachments/module2_figure10.png" width="400" /></p>
-<div class="highlight"><pre><span></span><code>Note that the &quot;Lite&quot; plan is free to use, but with limited functionality and only a 30 day window to operate before it is automatically de-provisioned. When configuring the service, use the following options:
-</code></pre></div>
+<p>Note that the "Lite" plan is free to use, but with limited functionality and only a 30 day window to operate before it is automatically de-provisioned. When configuring the service, use the following options:</p>
 <ul>
 <li>
 <p><strong>Service Name</strong>: Set to a unique name of your preference.</p>
@@ -499,10 +486,10 @@
 </li>
 <li>
 <p><strong>Tags and Access Management</strong> tags can be left blank.</p>
-<p>Confirm that you have read and agree to the license agreements, then click <strong>Create</strong> to provision.</p>
-<p><img alt="" loading="lazy" src="../_attachments/module2_figure12.png" width="400" /></p>
 </li>
 </ul>
+<p>Confirm that you have read and agree to the license agreements, then click <strong>Create</strong> to provision.</p>
+<p><img alt="" loading="lazy" src="../_attachments/module2_figure12.png" width="400" /></p>
 <hr />
 <ol start="7">
 <li>On your local desktop or laptop, download and install <strong>Git</strong>. Click to expand more details on how to configure Git for your particular operating system.</li>
@@ -554,8 +541,8 @@
 </details>
 <hr />
 <ol start="8">
-<li>
-<p>Install the <strong>OpenSSL binary</strong> on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a></p>
+<li>Install the <strong>OpenSSL binary</strong> on your local machine. More information about the OpenSSL Project can be found within their online documentation: <a href="https://www.openssl.org" target="_blank">https://www.openssl.org</a></li>
+</ol>
 <p>To install OpenSSL, either read the instructions detailed here (<a href="https://www.openssl.org/source/gitrepo.html" target="_blank">https://www.openssl.org/source/gitrepo.html</a>) or execute the following commands one at a time in your command line interface:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git clone git://git.openssl.org/openssl.git
 </code></pre></div>
@@ -567,12 +554,10 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git checkout .
 </code></pre></div></p>
-</li>
-</ol>
 <hr />
 <ol start="9">
-<li>
-<p>Install the <strong>Terraform CLI</strong> on your local machine. Detailed instructions and video instructions for doing so are provided online: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli" target="_blank">https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli</a></p>
+<li>Install the <strong>Terraform CLI</strong> on your local machine. Detailed instructions and video instructions for doing so are provided online: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli" target="_blank">https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli</a></li>
+</ol>
 <p>You may either follow the detailed instructions (above) or execute the condensed instructions line-by-line (below):</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>brew tap hashicorp/tap
 </code></pre></div>
@@ -584,8 +569,6 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>terraform -version
 </code></pre></div></p>
-</li>
-</ol>
 <hr />
 <h1 id="_1"></h1>
 <h1 id="next-steps">Next steps</h1>
