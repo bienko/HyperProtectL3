@@ -464,33 +464,52 @@
 </div>
 <p>The evaluation criteria described below <strong>only applies to IBMers</strong>, who must record a Stand &amp; Deliver presentation to receive accreditation for this Level 3 course. IBMers will be evaluated by First Line Manager (FLM). Instructions on how to submit a Stand &amp; Deliver are included on this page.</p>
 <p>You must incorporate <strong>ALL</strong> requirements from <strong>BOTH</strong> the <code>HPCS</code> and <code>HPVS</code> modules as part of your Stand &amp; Deliver recording. Click to expand each of the following tabs to view the evaluation criteria for each module.</p>
-<p>??? note "REQUIREMENTS — HYPER PROTECT CRYPTO SERVICES (<code>HPCS</code>)</p>
-<div class="highlight"><pre><span></span><code>For Hyper Protect Crypto Services with Unified Key Orchestrator – Key Management Demo:
-
-1. Articulate the value of IBM Cloud Hyper Protect Crypto Services with Unified Key Orchestrator in a way that relates to current client needs and/or pain point(s). Especially:
-
-    - The need to protect data with encryption keys which are in the control of the client to enhance data security, data privacy and data sovereignty as well as compliance posture (for regulated clients).
-
-    - The differences in security posture of the different available key management options across cloud, i.e. CSP managed encryption, BYOK, HYOK &amp; KYOK. Explain the Concepts of Key Vaults, Key Stores and Keys within the Service UI on cloud.ibm.com
-
-2. Demonstrate the following features of Hyper Protect offerings:
-
-    - How to provision a new service instance of HPCS, the major difference of the standard and the unified key orchestration (UKO) plan (IBM Cloud only and Multi Cloud capabilities) and explain how pricing is set-up
-
-    - Show what a Key Vault is and how it can be used and useful for teams across an organisation with Role Based Access Control (RBAC)
-
-    - Show what a KeyStore is and how you would set it up (without setting it up as Secrets needed for this should not be shared in a demo)
-
-    - Show how to create a key &amp; push a key to an already set AWS KeyStore
-
-    - Show how to encrypt data in an S3 Bucket in AWS with a key created in UKO
-
-    - Show how to manage that key and use the control you would have as a cloud customer over that key by deactivating the key
-
-    - Show the impact of deactivating the key in IBM Cloud HPCS with UKO on access to data in AWS Storage: expected outcome: encrypted object in the S3 storage is not accessible anymore. Explain how that enhanced the control and therefore security posture of the User.
-
-    - Show how to activate the key again &amp; how that makes the encrypted objects in AWS S3 Service available to use again, as it can be decrypted. Explain that this is also a risk mitigation, in case a Key in AWS gets lost or stolen, as it is securely backed up in IBM Cloud.
-</code></pre></div>
+<details class="note">
+<summary>REQUIREMENTS — HYPER PROTECT CRYPTO SERVICES (<code>HPCS</code>)</summary>
+<p>For Hyper Protect Crypto Services with Unified Key Orchestrator – Key Management Demo:</p>
+<ol>
+<li>
+<p>Articulate the value of IBM Cloud Hyper Protect Crypto Services with Unified Key Orchestrator in a way that relates to current client needs and/or pain point(s). Especially:</p>
+<ul>
+<li>
+<p>The need to protect data with encryption keys which are in the control of the client to enhance data security, data privacy and data sovereignty as well as compliance posture (for regulated clients).</p>
+</li>
+<li>
+<p>The differences in security posture of the different available key management options across cloud, i.e. CSP managed encryption, BYOK, HYOK &amp; KYOK. Explain the Concepts of Key Vaults, Key Stores and Keys within the Service UI on cloud.ibm.com</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Demonstrate the following features of Hyper Protect offerings:</p>
+<ul>
+<li>
+<p>How to provision a new service instance of HPCS, the major difference of the standard and the unified key orchestration (UKO) plan (IBM Cloud only and Multi Cloud capabilities) and explain how pricing is set-up</p>
+</li>
+<li>
+<p>Show what a Key Vault is and how it can be used and useful for teams across an organisation with Role Based Access Control (RBAC)</p>
+</li>
+<li>
+<p>Show what a KeyStore is and how you would set it up (without setting it up as Secrets needed for this should not be shared in a demo)</p>
+</li>
+<li>
+<p>Show how to create a key &amp; push a key to an already set AWS KeyStore</p>
+</li>
+<li>
+<p>Show how to encrypt data in an S3 Bucket in AWS with a key created in UKO</p>
+</li>
+<li>
+<p>Show how to manage that key and use the control you would have as a cloud customer over that key by deactivating the key</p>
+</li>
+<li>
+<p>Show the impact of deactivating the key in IBM Cloud HPCS with UKO on access to data in AWS Storage: expected outcome: encrypted object in the S3 storage is not accessible anymore. Explain how that enhanced the control and therefore security posture of the User.</p>
+</li>
+<li>
+<p>Show how to activate the key again &amp; how that makes the encrypted objects in AWS S3 Service available to use again, as it can be decrypted. Explain that this is also a risk mitigation, in case a Key in AWS gets lost or stolen, as it is securely backed up in IBM Cloud.</p>
+</li>
+</ul>
+</li>
+</ol>
+</details>
 <details class="tip">
 <summary>REQUIREMENTS — HYPER PROTECT VIRTUAL SERVERS (<code>HPVS</code>)</summary>
 </details>
